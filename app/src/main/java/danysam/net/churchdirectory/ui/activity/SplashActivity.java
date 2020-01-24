@@ -1,0 +1,89 @@
+package danysam.net.churchdirectory.ui.activity;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.Toast;
+import android.widget.VideoView;
+
+import danysam.net.churchdirectory.LoginActivity;
+import danysam.net.churchdirectory.MainActivity;
+import danysam.net.churchdirectory.R;
+
+public class SplashActivity extends Activity implements MediaPlayer.OnCompletionListener, MediaPlayer.OnPreparedListener {
+
+    private VideoView mVV;
+    String hasLoggedIn;
+
+    @Override
+    public void onCreate(Bundle b) {
+        super.onCreate(b);
+
+        setContentView(R.layout.video_player_activity);
+
+        int fileRes=this.getResources().getIdentifier("splash", "raw", getPackageName());
+        mVV = (VideoView)findViewById(R.id.myvideoview);
+        mVV.setOnCompletionListener(this);
+        mVV.setOnPreparedListener(this);
+
+        if (!playFileRes(fileRes)) return;
+
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        hasLoggedIn = sharedPreferences.getString("hasLoggedIn", "false");
+
+        mVV.start();
+
+
+    }
+
+
+    private boolean playFileRes(int fileRes) {
+        if (fileRes==0) {
+            stopPlaying();
+            return false;
+        } else {
+            mVV.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + fileRes));
+            return true;
+        }
+    }
+
+    public void stopPlaying() {
+        mVV.stopPlayback();
+        this.finish();
+        if(hasLoggedIn != "false")
+        {
+            startActivity(new Intent(this, MainActivity.class));
+        }else{
+            Intent i = new Intent(this, LoginActivity.class);
+            i.putExtra("SplashRedirect", true);
+            startActivity(i);
+        }
+    }
+
+
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        if(hasLoggedIn != "false")
+        {
+            startActivity(new Intent(this, MainActivity.class));
+        }else{
+            Intent i = new Intent(this, LoginActivity.class);
+            i.putExtra("SplashRedirect", true);
+            startActivity(i);
+        }
+        finish();
+    }
+
+
+    @Override
+    public void onPrepared(MediaPlayer mp) {
+        mp.setLooping(false);
+    }
+
+}

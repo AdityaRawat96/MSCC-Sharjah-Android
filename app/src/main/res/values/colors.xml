@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#0A2950</color>
+    <color name="colorPrimaryDark">#001A45</color>
+    <color name="colorPrimaryLight">#123064</color>
+    <color name="colorAccent">#607D8B</color>
+    <color name="textPrimary">#212121</color>
+    <color name="textLightPrimary">#FFFFFF</color>
+    <color name="textSecondary">#757575</color>
+    <color name="textLightSecondary">#EEEEEE</color>
+    <color name="divider">#EEEEEE</color>
+    <color name="alert">#F44334</color>
+    <color name="white">#FFFFFF</color>
+    <color name="hamburger">#00FDFD</color>
+    <color name="drawer">#00C5DD</color>
+    <color name="black">#000000</color>
+    <color name="ucrop_color_statusbar" tools:override="true">#009688</color>
+    <color name="ucrop_color_toolbar" tools:override="true">#009688</color>
+    <color name="ucrop_color_widget" tools:override="true">#009688</color>
+    <color name="ucrop_color_widget_active" tools:override="true">#009688</color>
+</resources>

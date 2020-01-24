@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_article"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_card_bottom"
+    android:layout_marginEnd="@dimen/margin_articles_right"
+    android:layout_marginStart="@dimen/margin_articles_left"
+    android:layout_marginTop="@dimen/margin_articles_top"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/card_article_image"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:contentDescription="@string/placeholder_content_description_family_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/article"
+            android:transitionName="article_image" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/card_article_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_text_article"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/text_size_heading"
+                android:transitionName="article_name" />
+
+            <TextView
+                android:id="@+id/card_article_snippet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:maxLines="3"
+                android:text="@string/lorem_ipsum"
+                android:textColor="@color/textSecondary"
+                android:textSize="@dimen/text_size_content"
+                android:transitionName="article_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

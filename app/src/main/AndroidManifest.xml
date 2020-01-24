@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="danysam.net.churchdirectory">
+
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.activity.PiousAssociations"
+            android:label="@string/title_activity_pious_associations"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="danysam.net.churchdirectory.MainActivity" />
+        </activity>
+        <activity android:name=".ui.activity.WebViewActivity" />
+        <activity
+            android:name=".ui.activity.AdvertisementActivity"
+            android:label="@string/title_activity_advertisement"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="danysam.net.churchdirectory.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activity.CalendarActivity"
+            android:label="@string/title_activity_calendar"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="danysam.net.churchdirectory.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.activity.ContactDetailsActivity" />
+        <activity android:name=".ui.activity.ArticleActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name=".ui.activity.ContactsActivity" />
+        <activity android:name=".ui.activity.ArticlesActivity" />
+        <activity android:name=".ui.activity.NotificationActivity" />
+        <activity android:name=".ui.activity.CommitteeActivity" />
+        <activity android:name=".ui.activity.CommitteeMembersActivity" />
+        <activity android:name=".ui.activity.DownloadActivity" />
+        <activity android:name=".ui.activity.HierarchyActivity" />
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.activity.NotificationDetailsActivity" />
+        <activity android:name=".ui.activity.AdsActivity" />
+        <activity android:name=".ui.activity.PushNotificationActivity" />
+        <activity android:name=".ui.activity.UpdateProfileActivity" />
+        <activity android:name=".ui.activity.AddMemberActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--
+             Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_church" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+
+        <service android:name=".service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".service.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

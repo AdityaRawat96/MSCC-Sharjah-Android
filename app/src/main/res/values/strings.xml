@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">MSCC Sharjah</string>
+    <string name="placeholder_name">John Doe</string>
+    <string name="placeholder_address">123 Main Road, Chelsea, Lost City of Atlantis</string>
+    <string name="placeholder_phone">050 123456789</string>
+    <string name="placeholder_content_description_family_image">Family Image</string>
+    <string name="static_text_relation">Relation</string>
+    <string name="placeholder_text_name">Name</string>
+    <string name="static_text_dob">DOB</string>
+    <string name="placeholder_text_dob">01/01/1980</string>
+    <string name="static_text_blood_group">Blood Group</string>
+    <string name="placeholder_text_blood_group">B+</string>
+    <string name="static_text_mobile">Mobile</string>
+    <string name="placeholder_text_phone_number">050 123456789</string>
+    <string name="content_description_call">Call</string>
+    <string name="content_description_message">Message</string>
+    <string name="static_text_call">Call</string>
+    <string name="static_text_send_message">Send Message</string>
+    <string name="static_text_address">Address</string>
+    <string name="placeholder_text_address">John Doe\'s Address</string>
+    <string name="static_text_prayer_group">Prayer Groups</string>
+    <string name="placeholder_text_prayer_group">John Doe\'s Prayer Group</string>
+    <string name="static_text_permanent_address">Permanent Address</string>
+    <string name="placeholder_text_permanent_address">John Doe\'s Permanent Address</string>
+    <string name="static_text_home_parish">Home Parish</string>
+    <string name="static_text_members">Members</string>
+    <string name="static_text_contacts">Contacts</string>
+    <string name="placeholder_text_article">John Doe\'s Article</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit tincidunt lorem vel facilisis. Pellentesque a imperdiet enim. Etiam id pretium lacus, vel elementum orci. Praesent pretium libero eget auctor mattis. Duis pellentesque ligula eget nulla semper rutrum. Mauris placerat sit amet felis a convallis. Vestibulum maximus ultricies dolor, tempus fringilla augue facilisis ac. Pellentesque non auctor tortor. Sed egestas sapien in sem hendrerit, non auctor ipsum suscipit. Fusce ornare nibh at ante pretium faucibus. In condimentum dapibus porttitor. Etiam id justo faucibus, rhoncus leo sed, finibus ligula. Integer hendrerit et ex sit amet cursus. Donec et diam ut diam condimentum porttitor.</string>
+    <string name="placeholder_date_time">19/01/2019 10:30AM</string>
+    <string name="placeholder_notification">Church Sunday School Anniversary programme is being rescheduled to December 2nd</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">PASSWORD</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="placeholder_text_username">USERNAME</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="placeholder_text_email">admin@admin.com</string>
+    <string name="static_text_cardinals">Cardinals</string>
+    <string name="static_text_register">Register</string>
+    <string name="church_name">Syro Malankara Catholic Church Sharjah</string>
+    <string name="advertisements">Advertisements</string>
+    <string name="ads">Ads</string>
+    <string name="dear_member">Dear Member</string>
+    <string name="enter_app">Enter App</string>
+    <string name="static_emergency_contact">Emergency Contact</string>
+    <string name="static_date_of_marriage">Date Of Marriage</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
+    <string name="title_activity_advertisement">AdvertisementActivity</string>
+    <string name="title_activity_pious_associations">Associations</string>
+</resources>

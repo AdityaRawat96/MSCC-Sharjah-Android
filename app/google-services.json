@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "732145000461",
+    "firebase_url": "https://smcc-android.firebaseio.com",
+    "project_id": "smcc-android",
+    "storage_bucket": "smcc-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732145000461:android:e5dbfb72c18968bd",
+        "android_client_info": {
+          "package_name": "danysam.net.churchdirectory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732145000461-v62pnqhrn96pmmq7a6f4g9fsjme4ir4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVcogJv81nYgKRHPZCMeoXra14ZGgVrg8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

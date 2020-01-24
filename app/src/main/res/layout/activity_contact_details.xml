@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="danysam.net.churchdirectory.ui.activity.ContactDetailsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_sv_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:transitionName="contact_card"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/family_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="192dp"
+                                android:contentDescription="@string/placeholder_content_description_family_image"
+                                android:scaleType="centerCrop"
+                                android:src="#e0e0e0"
+                                android:transitionName="contact_image" />
+
+                            <ProgressBar
+                                android:id="@+id/image_loading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:visibility="gone" />
+
+                            <ImageButton
+                                android:id="@+id/image_edit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentEnd="true"
+                                android:background="?attr/selectableItemBackground"
+                                android:padding="12dp"
+                                android:src="@drawable/ic_edit_white_24dp" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/contact_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/raleway"
+                                android:text="@string/placeholder_name"
+                                android:textColor="@color/textPrimary"
+                                android:textSize="20sp"
+                                android:transitionName="contact_name" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                                <!--TODO : Add call and send message-->
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="start"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:drawableLeft="@drawable/ic_call_black_24dp"
+                                    android:drawablePadding="8dp"
+                                    android:drawableStart="@drawable/ic_call_black_24dp"
+                                    android:paddingLeft="8dp"
+                                    android:paddingRight="8dp"
+                                    android:text="@string/static_text_call"
+                                    android:textAlignment="textStart" />
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="start"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:drawableLeft="@drawable/ic_message_black_24dp"
+                                    android:drawablePadding="8dp"
+                                    android:drawableStart="@drawable/ic_message_black_24dp"
+                                    android:paddingLeft="8dp"
+                                    android:paddingRight="8dp"
+                                    android:text="@string/static_text_send_message"
+                                    android:textAlignment="textStart" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/static_text_contacts"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_contacts"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/divider" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/static_text_address"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <TextView
+                            android:id="@+id/contact_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/placeholder_text_address"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="@dimen/text_size_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/static_text_prayer_group"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <TextView
+                            android:id="@+id/contact_prayer_group"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/placeholder_text_prayer_group"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="@dimen/text_size_content" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/static_text_permanent_address"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <TextView
+                            android:id="@+id/contact_permanent_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/placeholder_text_permanent_address"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="@dimen/text_size_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/static_text_home_parish"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <TextView
+                            android:id="@+id/contact_home_parish"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/placeholder_text_permanent_address"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="@dimen/text_size_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/static_date_of_marriage"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <TextView
+                            android:id="@+id/contact_dom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/placeholder_date_time"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="@dimen/text_size_content" />
+
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/static_text_members"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_members"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/divider" />
+
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/static_emergency_contact"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <TextView
+                            android:id="@+id/contact_emergency_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/placeholder_phone"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="@dimen/text_size_content" />
+
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <RelativeLayout
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_edit_white_24dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
