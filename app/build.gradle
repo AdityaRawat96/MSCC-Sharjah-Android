@@ -10,11 +10,11 @@ def _versionName = gitTag + "_" + gitVersion
 
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "danysam.net.churchdirectory"
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 28
         multiDexEnabled true
         versionCode gitVersion
         versionName _versionName

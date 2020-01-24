@@ -353,12 +353,12 @@
             <ImageView
                 android:id="@+id/advertisementImageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="90dp"
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom"
                 android:adjustViewBounds="true"
                 android:minHeight="50dp"
-                android:scaleType="fitStart" />
+                android:scaleType="centerCrop" />
 
         </RelativeLayout>
 
