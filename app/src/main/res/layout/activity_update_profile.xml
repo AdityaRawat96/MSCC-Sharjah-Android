@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context="danysam.net.churchdirectory.ui.activity.ContactDetailsActivity">
+    tools:context="mscc.net.churchdirectory.com.net.churchdirectory.ui.activity.ContactDetailsActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

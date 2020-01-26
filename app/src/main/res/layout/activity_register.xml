@@ -7,7 +7,7 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:theme="@style/AppTheme.Dark"
-    tools:context="danysam.net.churchdirectory.ui.activity.RegisterActivity">
+    tools:context="mscc.net.churchdirectory.com.net.churchdirectory.ui.activity.RegisterActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

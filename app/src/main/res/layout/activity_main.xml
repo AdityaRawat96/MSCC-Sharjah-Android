@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="danysam.net.churchdirectory.MainActivity">
+    tools:context="mscc.net.churchdirectory.com.net.churchdirectory.MainActivity">
 
     <android.support.design.widget.CoordinatorLayout
         android:background="@drawable/backgroundbottom"

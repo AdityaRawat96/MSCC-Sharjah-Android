@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.activity.CalendarActivity"
+    tools:context="mscc.net.churchdirectory.ui.activity.CalendarActivity"
     tools:showIn="@layout/activity_calendar">
 
 </android.support.constraint.ConstraintLayout>

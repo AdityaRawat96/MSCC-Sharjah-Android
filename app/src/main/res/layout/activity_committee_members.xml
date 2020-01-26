@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="danysam.net.churchdirectory.ui.activity.CommitteeMembersActivity">
+    tools:context="mscc.net.churchdirectory.com.net.churchdirectory.ui.activity.CommitteeMembersActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
