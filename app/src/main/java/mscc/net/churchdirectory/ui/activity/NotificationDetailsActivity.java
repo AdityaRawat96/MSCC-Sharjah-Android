@@ -1,11 +1,13 @@
 package mscc.net.churchdirectory.ui.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +24,7 @@ public class NotificationDetailsActivity extends AppCompatActivity {
     private ImageView image;
     private TextView title;
     private TextView message;
+    private Button button;
     private CardView messageSection;
 
     @Override
@@ -31,6 +34,7 @@ public class NotificationDetailsActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         image = findViewById(R.id.notification_image);
         title = findViewById(R.id.notification_title);
+        button = findViewById(R.id.readMoreButtonNews);
         message = findViewById(R.id.notification_message);
         messageSection = findViewById(R.id.cardview_notification_message);
 
@@ -46,6 +50,20 @@ public class NotificationDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("");
 
         title.setText(notification.getTitle());
+
+        if(notification.getLink().length() > 4){
+            button.setVisibility(View.VISIBLE);
+        }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NotificationDetailsActivity.this, WebViewActivity.class);
+                intent.putExtra("urlString", notification.getLink());
+                startActivity(intent);
+            }
+        });
+
         Picasso.get().load(notification.getImage())
                 .error(R.drawable.ic_placeholder_background)
                 .placeholder(R.drawable.ic_placeholder_background)

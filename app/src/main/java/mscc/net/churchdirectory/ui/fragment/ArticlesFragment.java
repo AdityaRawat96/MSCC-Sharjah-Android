@@ -98,7 +98,7 @@ public class ArticlesFragment extends Fragment {
 
         List<Articles.Article> articles = new ArrayList<>();
         for (Article a : articleList) {
-            articles.add(new Articles.Article(String.valueOf(a.getId()), a.getTitle(), a.getContent(), a.getImage(), a.getDate()));
+            articles.add(new Articles.Article(String.valueOf(a.getId()), a.getTitle(), a.getContent(), a.getImage(), a.getLink(), a.getDate()));
         }
         return articles;
     }
@@ -118,7 +118,7 @@ public class ArticlesFragment extends Fragment {
         List<Article> articleList = new ArrayList<>();
 
         for (Articles.Article a : articles) {
-            articleList.add(new Article(Integer.parseInt(a.getId()), a.getTitle(), a.getContent(), a.getImage(), a.getDate()));
+            articleList.add(new Article(Integer.parseInt(a.getId()), a.getTitle(), a.getContent(),a.getImage(), a.getLink(), a.getDate()));
         }
 
         Observable.just(db)

@@ -10,11 +10,12 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "article")
 public class Article {
 
-    public Article(int id, String title, String content, String image, String date) {
+    public Article(int id, String title, String content, String image, String link, String date) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.image = image;
+        this.link = link;
         this.date = date;
     }
 
@@ -23,6 +24,7 @@ public class Article {
     private String title;
     private String content;
     private String image;
+    private String link;
     private String date;
 
 
@@ -56,6 +58,14 @@ public class Article {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getDate() {

@@ -15,13 +15,15 @@ public class Notification {
     private String title;
     private String message;
     private String image;
+    private String link;
     private String date;
 
-    public Notification(int id, String title, String message, String image, String date) {
+    public Notification(int id, String title, String message, String image, String link, String date) {
         this.id = id;
         this.title = title;
         this.message = message;
         this.image = image;
+        this.link = link;
         this.date = date;
     }
 
@@ -59,6 +61,14 @@ public class Notification {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getDate() {

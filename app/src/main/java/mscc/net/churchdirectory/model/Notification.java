@@ -121,11 +121,12 @@ public class Notification implements Parcelable{
         @Expose
         private String title;
 
-        public Notification_(String id, String title, String message, String image, String date) {
+        public Notification_(String id, String title, String message, String image, String link, String date) {
             this.id = id;
             this.title = title;
             this.message = message;
             this.image = image;
+            this.link = link;
             this.date = date;
         }
 
@@ -136,6 +137,9 @@ public class Notification implements Parcelable{
         @SerializedName("image")
         @Expose
         private String image;
+        @SerializedName("link")
+        @Expose
+        private String link;
         @SerializedName("date")
         @Expose
         private String date;
@@ -145,6 +149,7 @@ public class Notification implements Parcelable{
             title = in.readString();
             message = in.readString();
             image = in.readString();
+            link = in.readString();
             date = in.readString();
         }
 
@@ -192,6 +197,14 @@ public class Notification implements Parcelable{
             this.image = image;
         }
 
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
+        }
+
         public String getDate() {
             return date;
         }
@@ -211,6 +224,7 @@ public class Notification implements Parcelable{
             dest.writeString(title);
             dest.writeString(message);
             dest.writeString(image);
+            dest.writeString(link);
             dest.writeString(date);
         }
     }

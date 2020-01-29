@@ -97,7 +97,7 @@ public class NotificationsFragment extends Fragment {
     private Collection<? extends Notification.Notification_> dbToList(List<mscc.net.churchdirectory.room.model.Notification> notificationList) {
         List<Notification.Notification_> temp = new ArrayList<>();
         for (mscc.net.churchdirectory.room.model.Notification n : notificationList) {
-            temp.add(new Notification.Notification_(String.valueOf(n.getId()), n.getTitle(), n.getMessage(), n.getImage(), n.getDate()));
+            temp.add(new Notification.Notification_(String.valueOf(n.getId()), n.getTitle(), n.getMessage(), n.getImage(), n.getLink(), n.getDate()));
         }
         return temp;
     }
@@ -117,7 +117,7 @@ public class NotificationsFragment extends Fragment {
         List<mscc.net.churchdirectory.room.model.Notification> notificationList = new ArrayList<>();
 
         for (Notification.Notification_ n : _notifications) {
-            notificationList.add(new mscc.net.churchdirectory.room.model.Notification(Integer.parseInt(n.getId()), n.getTitle(), n.getMessage(), n.getImage(), n.getDate()));
+            notificationList.add(new mscc.net.churchdirectory.room.model.Notification(Integer.parseInt(n.getId()), n.getTitle(), n.getMessage(), n.getImage(), n.getLink(), n.getDate()));
         }
 
         Observable.just(db)

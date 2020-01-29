@@ -1,13 +1,17 @@
 package mscc.net.churchdirectory.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import mscc.net.churchdirectory.MainActivity;
 import mscc.net.churchdirectory.R;
 
 import mscc.net.churchdirectory.model.Articles;
@@ -22,6 +26,7 @@ public class ArticleActivity extends AppCompatActivity {
     private ImageView image;
     private TextView title;
     private TextView content;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,7 @@ public class ArticleActivity extends AppCompatActivity {
         image = findViewById(R.id.article_image);
         title = findViewById(R.id.article_title);
         content = findViewById(R.id.article_content);
+        button = findViewById(R.id.readMoreButton);
 
         article = getIntent().getParcelableExtra(ARTICLE_DATA);
 
@@ -45,6 +51,19 @@ public class ArticleActivity extends AppCompatActivity {
 
         title.setText(article.getTitle());
         content.setText(article.getContent());
+
+        if(article.getLink().length() > 4){
+            button.setVisibility(View.VISIBLE);
+        }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ArticleActivity.this, WebViewActivity.class);
+                intent.putExtra("urlString", article.getLink());
+                startActivity(intent);
+            }
+        });
         Picasso.get().load(article.getImage())
                 .error(R.drawable.ic_placeholder_background)
                 .placeholder(R.drawable.ic_placeholder_background)

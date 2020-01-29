@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,6 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.title.setText(articles.get(position).getTitle());
         holder.snippet.setText(articles.get(position).getContent());
-
         Picasso.get().load(articles.get(position).getImage())
                 .error(R.drawable.ic_placeholder_background)
                 .placeholder(R.drawable.ic_placeholder_background)

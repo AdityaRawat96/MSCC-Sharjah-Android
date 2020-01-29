@@ -89,10 +89,11 @@ public class Articles {
 
     public static class Article implements Parcelable{
 
-        public Article(String id, String title, String content, String image, String date) {
+        public Article(String id, String title, String content, String image, String link, String date) {
             this.id = id;
             this.title = title;
             this.content = content;
+            this.link = link;
             this.image = image;
             this.date = date;
         }
@@ -106,6 +107,9 @@ public class Articles {
         @SerializedName("content")
         @Expose
         private String content;
+        @SerializedName("link")
+        @Expose
+        private String link;
         @SerializedName("image")
         @Expose
         private String image;
@@ -117,6 +121,7 @@ public class Articles {
             id = in.readString();
             title = in.readString();
             content = in.readString();
+            link = in.readString();
             image = in.readString();
             date = in.readString();
         }
@@ -159,6 +164,14 @@ public class Articles {
             this.content = content;
         }
 
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
+        }
+
         public String getImage() {
             return image;
         }
@@ -185,6 +198,7 @@ public class Articles {
             dest.writeString(id);
             dest.writeString(title);
             dest.writeString(content);
+            dest.writeString(link);
             dest.writeString(image);
             dest.writeString(date);
         }

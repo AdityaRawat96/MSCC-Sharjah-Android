@@ -511,6 +511,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         notification.setTitle(m.getString("title"));
                         notification.setMessage(m.getString("message"));
                         notification.setImage(m.getString("image"));
+                        notification.setLink(m.getString("link"));
                         notification.setDate(m.getString("date"));
 
                         db.getNotificationDao().insert(notification);
@@ -781,6 +782,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
+    private void navigateLinks() {
+        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+        intent.putExtra("urlString", "http://msccsharjah.com/Pages/Links.php?");
+        startActivity(intent);
+    }
+
     private void navigateTiming() {
         Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
         intent.putExtra("urlString", "http://msccsharjah.com/Pages/HolyMassTiming.php?");
@@ -840,6 +847,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.drawer_menu_timing:
                 navigateTiming();
+                break;
+
+            case R.id.drawer_menu_links:
+                navigateLinks();
                 break;
 
             case R.id.drawer_menu_contact_us:
