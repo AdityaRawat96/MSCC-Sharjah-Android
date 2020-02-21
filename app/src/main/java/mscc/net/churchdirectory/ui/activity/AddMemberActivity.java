@@ -65,18 +65,25 @@ public class AddMemberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_member);
 
-        relations.add("Husband");
+        relations.add("");
+        relations.add("Family Head");
         relations.add("Father");
+        relations.add("Mother");
         relations.add("Wife");
+        relations.add("Husband");
         relations.add("Son");
         relations.add("Daughter");
-        relations.add("Mother");
-        relations.add("Daughter in law");
         relations.add("Brother");
         relations.add("Sister");
-        relations.add("Son In Law");
-        relations.add("Grandson");
+        relations.add("Grandfather");
+        relations.add("Grandmother");
+        relations.add("Grand son");
         relations.add("Grand daughter");
+        relations.add("Uncle");
+        relations.add("Aunt");
+        relations.add("Son-in-law");
+        relations.add("Daughter-in-law");
+        relations.add("Relative");
 
         bloodGroups.add("");
         bloodGroups.add("O-");

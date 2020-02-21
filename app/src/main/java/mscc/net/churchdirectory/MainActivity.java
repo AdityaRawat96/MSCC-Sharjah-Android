@@ -784,7 +784,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void navigateLinks() {
         Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-        intent.putExtra("urlString", "http://msccsharjah.com/Pages/Links.php?");
+        intent.putExtra("urlString", "http://msccsharjah.com/Ecclesial Links/?");
         startActivity(intent);
     }
 

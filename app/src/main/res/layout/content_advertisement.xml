@@ -19,6 +19,7 @@
         app:srcCompat="@color/cardview_shadow_start_color" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/descriptionTextViewAd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

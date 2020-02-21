@@ -259,7 +259,7 @@
                             android:drawablePadding="-30dp"
                             android:focusable="true"
                             android:foreground="?attr/selectableItemBackgroundBorderless"
-                            android:text="Liturgical\nCalender"
+                            android:text="Liturgical\nCalendar"
                             android:textColor="#FFFFFF"
                             android:textSize="12sp" />
 

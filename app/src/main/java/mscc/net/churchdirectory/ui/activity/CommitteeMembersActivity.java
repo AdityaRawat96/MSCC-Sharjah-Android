@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import mscc.net.churchdirectory.adapter.CommitteeMembersAdapter;
 
@@ -30,6 +32,9 @@ import mscc.net.churchdirectory.model.CommitteeMember;
 public class CommitteeMembersActivity extends AppCompatActivity {
 
     private CommitteeMembersAdapter adapter;
+    private TextView textView1;
+    private TextView textView2;
+
     private RecyclerView recyclerView1;
     private RecyclerView recyclerView2;
     private RecyclerView.LayoutManager layoutManager1;
@@ -50,6 +55,9 @@ public class CommitteeMembersActivity extends AppCompatActivity {
         recyclerView1 = findViewById(R.id.recycler_committee_members_executive);
         recyclerView2 = findViewById(R.id.recycler_committee_members);
         toolbar = findViewById(R.id.toolbar);
+
+        textView1 = findViewById(R.id.executiveTextView);
+        textView2 = findViewById(R.id.committeeTextView);
 
         committeeMemberList = committeeMemberDatabase.getAllCommitteeMembers();
         Collections.sort(committeeMemberList, (o1, o2) -> o1.getCommitteeMemberRank().compareTo(o2.getCommitteeMemberRank()));
@@ -118,10 +126,29 @@ public class CommitteeMembersActivity extends AppCompatActivity {
                 list2.add(committeeMemberList.get(i));
             }
         }
+
+        Collections.sort(list1,
+                (o1, o2) -> o1.getCommitteeMemberRank().compareTo(o2.getCommitteeMemberRank()));
+
+        Collections.sort(list2,
+                (o1, o2) -> o1.getCommitteeMemberRank().compareTo(o2.getCommitteeMemberRank()));
+
         recyclerView1.setAdapter(new CommitteeMembersAdapter(list1, this));
         recyclerView1.invalidate();
         recyclerView2.setAdapter(new CommitteeMembersAdapter(list2, this));
         recyclerView2.invalidate();
+
+        recyclerView1.setNestedScrollingEnabled(false);
+        recyclerView2.setNestedScrollingEnabled(false);
+
+        if(list1.size() == 0){
+            textView1.setVisibility(View.GONE);
+            recyclerView1.setVisibility(View.GONE);
+        }
+        if(list2.size() == 0){
+            textView2.setVisibility(View.GONE);
+            recyclerView2.setVisibility(View.GONE);
+        }
     }
 
     @Override

@@ -220,6 +220,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
     }
 
     private void initPrayerGroups() {
+        prayerGroups.add("- SELECT PRAYER GROUP -");
         prayerGroups.add("Our Lady of Arabia");
         prayerGroups.add("St. Peter's");
         prayerGroups.add("St. Joseph's");
@@ -299,7 +300,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
         Calendar calendar = Calendar.getInstance();
         @SuppressLint("DefaultLocale") DatePickerDialog dpd = new DatePickerDialog(this,
                 (datePicker, year, month, day) -> {
-                    dom.setText(String.format("%d %s", day, getMonth(month)));
+                    dom.setText(String.format("%d %s", day, getMonth(month-1)));
                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH));
         dpd.show();

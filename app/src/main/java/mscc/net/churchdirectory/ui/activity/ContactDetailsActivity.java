@@ -32,6 +32,8 @@ import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -298,6 +300,18 @@ public class ContactDetailsActivity extends AppCompatActivity {
     }
 
     private void setUpMembers(List<Member> memberList) {
+        Comparator<Member> compareByPriority = new Comparator<Member>() {
+            @Override
+            public int compare(Member o1, Member o2) {
+                int Priority1 = o1.getPriority();
+                int Priority2 = o2.getPriority();
+
+                /*For ascending order*/
+                return Priority1-Priority2;
+            }
+        };
+
+        Collections.sort(memberList, compareByPriority);
         membersData = memberList;
         this.members.clear();
         this.members.addAll(memberList);
