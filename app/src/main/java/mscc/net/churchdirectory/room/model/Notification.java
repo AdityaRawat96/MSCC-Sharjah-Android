@@ -1,6 +1,7 @@
 package mscc.net.churchdirectory.room.model;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 /**
@@ -27,6 +28,7 @@ public class Notification {
         this.date = date;
     }
 
+    @Ignore
     public Notification() {
     }
 

@@ -22,6 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import mscc.net.churchdirectory.database.CommitteeMemberDatabase;
@@ -117,6 +118,18 @@ public class CommitteeMembersActivity extends AppCompatActivity {
     private void initHierarchies() {
         committeeMemberList.clear();
         committeeMemberList = committeeMemberDatabase.getAllCommitteeMembers();
+
+        Collections.sort(committeeMemberList, new Comparator<CommitteeMember>() {
+            @Override
+            public int compare(CommitteeMember lhs, CommitteeMember rhs) {
+                if(Integer.parseInt(lhs.getCommitteeMemberRank()) < Integer.parseInt(rhs.getCommitteeMemberRank())) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
+
         List<CommitteeMember> list1 = new ArrayList<>();
         List<CommitteeMember> list2 = new ArrayList<>();
         for(int i = 0; i < committeeMemberList.size(); i++){
@@ -126,12 +139,6 @@ public class CommitteeMembersActivity extends AppCompatActivity {
                 list2.add(committeeMemberList.get(i));
             }
         }
-
-        Collections.sort(list1,
-                (o1, o2) -> o1.getCommitteeMemberRank().compareTo(o2.getCommitteeMemberRank()));
-
-        Collections.sort(list2,
-                (o1, o2) -> o1.getCommitteeMemberRank().compareTo(o2.getCommitteeMemberRank()));
 
         recyclerView1.setAdapter(new CommitteeMembersAdapter(list1, this));
         recyclerView1.invalidate();
