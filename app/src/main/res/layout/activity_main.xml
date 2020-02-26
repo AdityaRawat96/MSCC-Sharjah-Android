@@ -358,7 +358,7 @@
                 android:layout_gravity="bottom"
                 android:adjustViewBounds="true"
                 android:minHeight="50dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="fitXY" />
 
         </RelativeLayout>
 

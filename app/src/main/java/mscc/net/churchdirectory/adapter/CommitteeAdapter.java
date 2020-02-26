@@ -55,7 +55,7 @@ public class CommitteeAdapter extends RecyclerView.Adapter<CommitteeAdapter.View
             });
         }
 
-        if (position == 1) {
+        else {
             holder.cardView.setOnClickListener(view -> {
                 Intent i = new Intent(context, CommitteeMembersActivity.class);
                 i.putExtra("PresentCommittee", false);

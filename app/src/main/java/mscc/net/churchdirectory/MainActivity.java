@@ -28,6 +28,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -53,7 +54,7 @@ import mscc.net.churchdirectory.ui.activity.DownloadActivity;
 import mscc.net.churchdirectory.ui.activity.HierarchyActivity;
 import mscc.net.churchdirectory.ui.activity.HttpHandler;
 import mscc.net.churchdirectory.ui.activity.NotificationActivity;
-import mscc.net.churchdirectory.ui.activity.PiousAssociations;
+import mscc.net.churchdirectory.ui.activity.PiousAssociationsActivity;
 import mscc.net.churchdirectory.ui.activity.PushNotificationActivity;
 import mscc.net.churchdirectory.ui.activity.WebViewActivity;
 import com.pusher.client.Pusher;
@@ -360,6 +361,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
         myTrace.stop();
+
+        if (!SessionManager.getInstance().isLoggedIn(this)) {
+            navigationView = (NavigationView) findViewById(R.id.main_navigation_view);
+            Menu nav_Menu = navigationView.getMenu();
+            nav_Menu.findItem(R.id.drawer_menu_logout).setVisible(false);
+        }
+
+        if (!SessionManager.getInstance().getIsMember(this)) {
+            navigationView = (NavigationView) findViewById(R.id.main_navigation_view);
+            Menu nav_Menu = navigationView.getMenu();
+            nav_Menu.findItem(R.id.drawer_menu_profile).setVisible(false);
+        }
 
     }
 
@@ -739,7 +752,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void navigatePious() {
-        startActivity(new Intent(this, PiousAssociations.class));
+        startActivity(new Intent(this, PiousAssociationsActivity.class));
     }
 
     private void navigateContacts() {
@@ -768,7 +781,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (!SessionManager.getInstance().isLoggedIn(this)) {
             startActivity(new Intent(this, LoginActivity.class));
         } else {
-            startActivity(new Intent(this, ContactsActivity.class));
+            if (!SessionManager.getInstance().getIsMember(this)) {
+                Toast.makeText(this, "Feature not available for Guest users!", Toast.LENGTH_SHORT).show();
+            }else{
+                startActivity(new Intent(this, ContactsActivity.class));
+            }
         }
     }
 
@@ -784,7 +801,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void navigateLinks() {
         Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-        intent.putExtra("urlString", "http://msccsharjah.com/Ecclesial Links/?");
+        intent.putExtra("urlString", "http://msccsharjah.com/Pages/Links.php?");
         startActivity(intent);
     }
 
@@ -796,6 +813,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void logout() {
         SessionManager.getInstance().setLoggedOut(this);
+        if (!SessionManager.getInstance().isLoggedIn(this)) {
+            navigationView = (NavigationView) findViewById(R.id.main_navigation_view);
+            Menu nav_Menu = navigationView.getMenu();
+            nav_Menu.findItem(R.id.drawer_menu_logout).setVisible(false);
+        }
+        Intent i = new Intent(this, LoginActivity.class);
+        i.putExtra("SplashRedirect", true);
+        startActivity(i);
+        finish();
         Toast.makeText(activity, "You've been logged out", Toast.LENGTH_SHORT).show();
     }
 

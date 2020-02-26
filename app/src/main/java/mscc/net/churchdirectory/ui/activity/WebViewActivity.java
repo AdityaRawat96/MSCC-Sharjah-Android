@@ -2,9 +2,11 @@ package mscc.net.churchdirectory.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,10 +19,13 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import mscc.net.churchdirectory.LoginActivity;
 
+import mscc.net.churchdirectory.MainActivity;
 import mscc.net.churchdirectory.R;
+import mscc.net.churchdirectory.session.SessionManager;
 
 public class WebViewActivity extends AppCompatActivity {
 
@@ -91,9 +96,25 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     public class WebviewInterface {
+
         @JavascriptInterface
         public void closePasswordReset() {
             startActivity(new Intent(WebViewActivity.this, LoginActivity.class));
+            finish();
+        }
+
+        @JavascriptInterface
+        public void sucessfulLogin() {
+            SessionManager.getInstance().setSession(WebViewActivity.this, "GUEST", "GUEST", "GUEST", false);
+            SharedPreferences sharedPreferences = PreferenceManager
+                    .getDefaultSharedPreferences(WebViewActivity.this);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("hasLoggedIn", "true");
+            editor.putString("guestLogin", "true");
+            editor.apply();
+            Toast.makeText(WebViewActivity.this, "Logged In as Guest!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(WebViewActivity.this, MainActivity.class));
+            finish();
         }
     }
 }

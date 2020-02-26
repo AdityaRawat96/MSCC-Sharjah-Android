@@ -1,19 +1,18 @@
-package mscc.net.churchdirectory.ui.activity;
+package mscc.net.churchdirectory.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import mscc.net.churchdirectory.R;
+import mscc.net.churchdirectory.ui.activity.WebViewActivity;
 
-public class PiousAssociations extends AppCompatActivity {
+public class PrayerGroupFragment extends Fragment {
 
-    private ImageView MCCLImageView;
-    private ImageView MCYMImageView;
-    private ImageView MathrusamajamImageView;
     private ImageView OurLadyOfArabiaImageView;
     private ImageView StPeterImageView;
     private ImageView StJosephImageView;
@@ -27,63 +26,41 @@ public class PiousAssociations extends AppCompatActivity {
     private ImageView StTheresaImageView;
     private ImageView MarGregorisImageView;
 
+    public PrayerGroupFragment() {
+        // Required empty public constructor
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pious_associations);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        MCCLImageView = findViewById(R.id.MCCLImageView);
-        MCYMImageView = findViewById(R.id.MCYMImageView);
-        MathrusamajamImageView = findViewById(R.id.MATHRUSAMAJAMImageView);
-        OurLadyOfArabiaImageView = findViewById(R.id.OurLadyOfArabiaImageView);
-        StPeterImageView = findViewById(R.id.StPetersImageView);
-        StJosephImageView = findViewById(R.id.StJosephImageView);
-        StGeorgeImageView = findViewById(R.id.StGeorgeImageView);
-        StJohnsImageView = findViewById(R.id.StJohnsImageView);
-        StJudeImageView = findViewById(R.id.StJudeImageView);
-        StThomasImageView = findViewById(R.id.StThomasImageView);
-        StAlphonsaImageView = findViewById(R.id.StAlphonsaImageView);
-        MarIavniosImageView = findViewById(R.id.MarIvaniosImageView);
-        StFrancisOfAssisiImageView = findViewById(R.id.StFrancisOfAssisiImageView);
-        StTheresaImageView = findViewById(R.id.StTheresaImageView);
-        MarGregorisImageView = findViewById(R.id.MarGregorisImageView);
 
 
-        MCCLImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
-                intent.putExtra("urlString", "http://msccsharjah.com/Pages/MCCL.php");
-                startActivity(intent);
-            }
-        });
+    }
 
-        MCYMImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
-                intent.putExtra("urlString", "http://msccsharjah.com/Pages/MCYM.php");
-                startActivity(intent);
-            }
-        });
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
 
-        MathrusamajamImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
-                intent.putExtra("urlString", "http://msccsharjah.com/Pages/Mathrusmajam.php");
-                startActivity(intent);
-            }
-        });
+        View RootView = inflater.inflate(R.layout.fragment_prayer_group, container, false);
+
+        OurLadyOfArabiaImageView = RootView.findViewById(R.id.OurLadyOfArabiaImageView);
+        StPeterImageView = RootView.findViewById(R.id.StPetersImageView);
+        StJosephImageView = RootView.findViewById(R.id.StJosephImageView);
+        StGeorgeImageView = RootView.findViewById(R.id.StGeorgeImageView);
+        StJohnsImageView = RootView.findViewById(R.id.StJohnsImageView);
+        StJudeImageView = RootView.findViewById(R.id.StJudeImageView);
+        StThomasImageView = RootView.findViewById(R.id.StThomasImageView);
+        StAlphonsaImageView = RootView.findViewById(R.id.StAlphonsaImageView);
+        MarIavniosImageView = RootView.findViewById(R.id.MarIvaniosImageView);
+        StFrancisOfAssisiImageView = RootView.findViewById(R.id.StFrancisOfAssisiImageView);
+        StTheresaImageView = RootView.findViewById(R.id.StTheresaImageView);
+        MarGregorisImageView = RootView.findViewById(R.id.MarGregorisImageView);
 
         OurLadyOfArabiaImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/OurLadyOfArabia.php");
                 startActivity(intent);
             }
@@ -92,7 +69,7 @@ public class PiousAssociations extends AppCompatActivity {
         StPeterImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StPeter.php");
                 startActivity(intent);
             }
@@ -101,7 +78,7 @@ public class PiousAssociations extends AppCompatActivity {
         StJosephImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StJoseph.php");
                 startActivity(intent);
             }
@@ -110,7 +87,7 @@ public class PiousAssociations extends AppCompatActivity {
         StGeorgeImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StGeorge.php");
                 startActivity(intent);
             }
@@ -119,7 +96,7 @@ public class PiousAssociations extends AppCompatActivity {
         StJohnsImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StJohn.php");
                 startActivity(intent);
             }
@@ -128,7 +105,7 @@ public class PiousAssociations extends AppCompatActivity {
         StJudeImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StJude.php");
                 startActivity(intent);
             }
@@ -137,7 +114,7 @@ public class PiousAssociations extends AppCompatActivity {
         StThomasImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StThomas.php");
                 startActivity(intent);
             }
@@ -146,7 +123,7 @@ public class PiousAssociations extends AppCompatActivity {
         StAlphonsaImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StAlphonsa.php");
                 startActivity(intent);
             }
@@ -155,7 +132,7 @@ public class PiousAssociations extends AppCompatActivity {
         MarIavniosImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/MarIvanios.php");
                 startActivity(intent);
             }
@@ -164,7 +141,7 @@ public class PiousAssociations extends AppCompatActivity {
         StFrancisOfAssisiImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StFrancisofAssisi.php");
                 startActivity(intent);
             }
@@ -173,7 +150,7 @@ public class PiousAssociations extends AppCompatActivity {
         StTheresaImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StTheresa.php");
                 startActivity(intent);
             }
@@ -182,11 +159,14 @@ public class PiousAssociations extends AppCompatActivity {
         MarGregorisImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PiousAssociations.this , WebViewActivity.class);
+                Intent intent = new Intent(getActivity() , WebViewActivity.class);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/MarGregorios.php");
                 startActivity(intent);
             }
         });
+
+        return RootView;
+
 
     }
 

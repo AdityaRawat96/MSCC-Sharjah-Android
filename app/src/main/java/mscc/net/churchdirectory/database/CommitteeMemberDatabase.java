@@ -77,11 +77,11 @@ public class CommitteeMemberDatabase extends SQLiteOpenHelper {
 
 
     // GET ALL DATA FROM DATABASE
-    public List<CommitteeMember> getAllCommitteeMembers() {
+    public List<CommitteeMember> getAllCommitteeMembers(String committeeId) {
         List<CommitteeMember> committeeMemberList = new ArrayList<>();
 
         // 1. BUILD THE QUERY
-        String query = "SELECT * FROM " + TABLE_COMMITTEEMEMBER;
+        String query = "SELECT * FROM " + TABLE_COMMITTEEMEMBER + " WHERE " + KEY_MEMBEROF + " = " + committeeId;
 
         // 2. GET REFERENCE TO WRITABLE DB
         SQLiteDatabase db = this.getWritableDatabase();

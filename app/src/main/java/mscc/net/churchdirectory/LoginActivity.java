@@ -121,7 +121,9 @@ public class LoginActivity extends AppCompatActivity {
         guestLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                Intent intent = new Intent(LoginActivity.this, WebViewActivity.class);
+                intent.putExtra("urlString", "http://msccsharjah.com/GuestLogin/login.php");
+                startActivity(intent);
             }
         });
 

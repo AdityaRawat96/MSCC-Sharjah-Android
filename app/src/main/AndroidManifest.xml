@@ -12,72 +12,68 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.activity.PiousAssociationsActivity"
+            android:theme="@style/MyMaterialTheme"
+            android:parentActivityName=".MainActivity"
+            ></activity>
+        <activity android:name=".ui.activity.WebViewActivity" />
         <activity
-            android:name="mscc.net.churchdirectory.ui.activity.PiousAssociations"
-            android:label="@string/title_activity_pious_associations"
-            android:parentActivityName="mscc.net.churchdirectory.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="mscc.net.churchdirectory.MainActivity" />
-        </activity>
-        <activity android:name="mscc.net.churchdirectory.ui.activity.WebViewActivity" />
-        <activity
-            android:name="mscc.net.churchdirectory.ui.activity.AdvertisementActivity"
+            android:name=".ui.activity.AdvertisementActivity"
             android:label="@string/title_activity_advertisement"
-            android:parentActivityName="mscc.net.churchdirectory.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mscc.net.churchdirectory.MainActivity" />
         </activity>
         <activity
-            android:name="mscc.net.churchdirectory.ui.activity.CalendarActivity"
+            android:name=".ui.activity.CalendarActivity"
             android:label="@string/title_activity_calendar"
-            android:parentActivityName="mscc.net.churchdirectory.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mscc.net.churchdirectory.MainActivity" />
         </activity>
         <activity
-            android:name="mscc.net.churchdirectory.ui.activity.SplashActivity"
+            android:name=".ui.activity.SplashActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="mscc.net.churchdirectory.MainActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.ContactDetailsActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.ArticleActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.activity.ContactDetailsActivity" />
+        <activity android:name=".ui.activity.ArticleActivity" />
         <activity
-            android:name="mscc.net.churchdirectory.LoginActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.ContactsActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.ArticlesActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.NotificationActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.CommitteeActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.CommitteeMembersActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.DownloadActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.HierarchyActivity" />
+        <activity android:name=".ui.activity.ContactsActivity" />
+        <activity android:name=".ui.activity.ArticlesActivity" />
+        <activity android:name=".ui.activity.NotificationActivity" />
+        <activity android:name=".ui.activity.CommitteeActivity" />
+        <activity android:name=".ui.activity.CommitteeMembersActivity" />
+        <activity android:name=".ui.activity.DownloadActivity" />
+        <activity android:name=".ui.activity.HierarchyActivity" />
         <activity
-            android:name="mscc.net.churchdirectory.ui.activity.RegisterActivity"
+            android:name=".ui.activity.RegisterActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.NotificationDetailsActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.PushNotificationActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.UpdateProfileActivity" />
-        <activity android:name="mscc.net.churchdirectory.ui.activity.AddMemberActivity" />
+        <activity android:name=".ui.activity.NotificationDetailsActivity" />
+        <activity android:name=".ui.activity.PushNotificationActivity" />
+        <activity android:name=".ui.activity.UpdateProfileActivity" />
+        <activity android:name=".ui.activity.AddMemberActivity" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
@@ -96,12 +92,12 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorPrimary" />
 
-        <service android:name="mscc.net.churchdirectory.service.MyFirebaseMessagingService">
+        <service android:name=".service.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="mscc.net.churchdirectory.service.MyFirebaseInstanceIDService">
+        <service android:name=".service.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>

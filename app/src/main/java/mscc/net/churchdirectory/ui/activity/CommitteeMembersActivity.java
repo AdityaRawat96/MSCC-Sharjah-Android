@@ -35,6 +35,7 @@ public class CommitteeMembersActivity extends AppCompatActivity {
     private CommitteeMembersAdapter adapter;
     private TextView textView1;
     private TextView textView2;
+    private String committeeId;
 
     private RecyclerView recyclerView1;
     private RecyclerView recyclerView2;
@@ -60,8 +61,44 @@ public class CommitteeMembersActivity extends AppCompatActivity {
         textView1 = findViewById(R.id.executiveTextView);
         textView2 = findViewById(R.id.committeeTextView);
 
-        committeeMemberList = committeeMemberDatabase.getAllCommitteeMembers();
-        Collections.sort(committeeMemberList, (o1, o2) -> o1.getCommitteeMemberRank().compareTo(o2.getCommitteeMemberRank()));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if(getIntent().getExtras()!=null){
+            committeeId = getIntent().getStringExtra("CommitteeId");
+            String committeeName = getIntent().getStringExtra("CommitteeName");
+            url = "http://msccsharjah.com/api/committee_members/?";
+            if(getIntent().getBooleanExtra("PresentCommittee", false) == true){
+                getSupportActionBar().setTitle("Present Committee");
+            }else{
+                getSupportActionBar().setTitle(committeeName);
+            }
+        }else{
+            finish();
+        }
+
+        committeeMemberList = committeeMemberDatabase.getAllCommitteeMembers(committeeId);
+        Collections.sort(committeeMemberList, new Comparator<CommitteeMember>() {
+            @Override
+            public int compare(CommitteeMember lhs, CommitteeMember rhs) {
+                if(Integer.parseInt(lhs.getCommitteeMemberRank()) < Integer.parseInt(rhs.getCommitteeMemberRank())) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
+
+        List<CommitteeMember> list1 = new ArrayList<>();
+        List<CommitteeMember> list2 = new ArrayList<>();
+        for(int i = 0; i < committeeMemberList.size(); i++){
+            if(committeeMemberList.get(i).getExecutiveMember().equalsIgnoreCase("1")){
+                list1.add(committeeMemberList.get(i));
+            }else {
+                list2.add(committeeMemberList.get(i));
+            }
+        }
 
         layoutManager1 = new LinearLayoutManager(this);
         layoutManager2 = new LinearLayoutManager(this);
@@ -75,21 +112,21 @@ public class CommitteeMembersActivity extends AppCompatActivity {
         recyclerView2.setLayoutManager(layoutManager2);
         recyclerView2.setHasFixedSize(true);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        recyclerView1.setAdapter(new CommitteeMembersAdapter(list1, this));
+        recyclerView1.invalidate();
+        recyclerView2.setAdapter(new CommitteeMembersAdapter(list2, this));
+        recyclerView2.invalidate();
 
-        if(getIntent().getExtras()!=null){
-            String committeeId = getIntent().getStringExtra("CommitteeId");
-            String committeeName = getIntent().getStringExtra("CommitteeName");
-            url = "http://msccsharjah.com/api/committee_members/?id="+committeeId;
-            if(getIntent().getBooleanExtra("PresentCommittee", false) == true){
-                getSupportActionBar().setTitle("Present Committee");
-            }else{
-                getSupportActionBar().setTitle(committeeName);
-            }
-        }else{
-            finish();
+        recyclerView1.setNestedScrollingEnabled(false);
+        recyclerView2.setNestedScrollingEnabled(false);
+
+        if(list1.size() == 0){
+            textView1.setVisibility(View.GONE);
+            recyclerView1.setVisibility(View.GONE);
+        }
+        if(list2.size() == 0){
+            textView2.setVisibility(View.GONE);
+            recyclerView2.setVisibility(View.GONE);
         }
 
         if(haveNetworkConnection() == true){
@@ -117,7 +154,7 @@ public class CommitteeMembersActivity extends AppCompatActivity {
 
     private void initHierarchies() {
         committeeMemberList.clear();
-        committeeMemberList = committeeMemberDatabase.getAllCommitteeMembers();
+        committeeMemberList = committeeMemberDatabase.getAllCommitteeMembers(committeeId);
 
         Collections.sort(committeeMemberList, new Comparator<CommitteeMember>() {
             @Override

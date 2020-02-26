@@ -11,11 +11,11 @@ import android.widget.VideoView;
 import mscc.net.churchdirectory.LoginActivity;
 import mscc.net.churchdirectory.MainActivity;
 import mscc.net.churchdirectory.R;
+import mscc.net.churchdirectory.session.SessionManager;
 
 public class SplashActivity extends Activity implements MediaPlayer.OnCompletionListener, MediaPlayer.OnPreparedListener {
 
     private VideoView mVV;
-    String hasLoggedIn;
 
     @Override
     public void onCreate(Bundle b) {
@@ -30,12 +30,7 @@ public class SplashActivity extends Activity implements MediaPlayer.OnCompletion
 
         if (!playFileRes(fileRes)) return;
 
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        hasLoggedIn = sharedPreferences.getString("hasLoggedIn", "false");
-
         mVV.start();
-
 
     }
 
@@ -53,13 +48,13 @@ public class SplashActivity extends Activity implements MediaPlayer.OnCompletion
     public void stopPlaying() {
         mVV.stopPlayback();
         this.finish();
-        if(hasLoggedIn != "false")
+        if (!SessionManager.getInstance().isLoggedIn(this))
         {
-            startActivity(new Intent(this, MainActivity.class));
-        }else{
             Intent i = new Intent(this, LoginActivity.class);
             i.putExtra("SplashRedirect", true);
             startActivity(i);
+        }else{
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 
@@ -67,13 +62,13 @@ public class SplashActivity extends Activity implements MediaPlayer.OnCompletion
 
     @Override
     public void onCompletion(MediaPlayer mp) {
-        if(hasLoggedIn != "false")
+        if (!SessionManager.getInstance().isLoggedIn(this))
         {
-            startActivity(new Intent(this, MainActivity.class));
-        }else{
             Intent i = new Intent(this, LoginActivity.class);
             i.putExtra("SplashRedirect", true);
             startActivity(i);
+        }else{
+            startActivity(new Intent(this, MainActivity.class));
         }
         finish();
     }

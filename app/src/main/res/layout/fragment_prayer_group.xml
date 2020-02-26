@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient2"
+    tools:context=".ui.fragment.PrayerGroupFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="mscc.net.churchdirectory.ui.activity.PiousAssociationsActivity"
+        tools:showIn="@layout/activity_pious_associations">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_35sdp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/static_text_prayer_group"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/MarIvaniosImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StJudetextViewBottom"
+                android:src="@drawable/ic_prayer_ivanios" />
+
+            <TextView
+                android:id="@+id/MarIvaniostextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="@dimen/_4sdp"
+                android:text="Mar Ivanios"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MarIvaniosImageView" />
+
+            <TextView
+                android:id="@+id/MarIvaniostextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="Ajman"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MarIvaniostextView" />
+
+            <ImageView
+                android:id="@+id/StAlphonsaImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toStartOf="@+id/MarIvaniosImageView"
+                app:layout_constraintStart_toEndOf="@+id/StThomasImageView"
+                app:layout_constraintTop_toBottomOf="@+id/StJohnstextViewBottom"
+                android:src="@drawable/ic_prayer_alphonsa" />
+
+            <TextView
+                android:id="@+id/StAlphonsatextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="@dimen/_4sdp"
+                android:text="St. Alphonsa"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/MarIvaniostextView"
+                app:layout_constraintStart_toEndOf="@+id/StThomastextView"
+                app:layout_constraintTop_toBottomOf="@+id/StAlphonsaImageView" />
+
+            <TextView
+                android:id="@+id/StAlphonsatextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="National Paint"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintEnd_toStartOf="@+id/StJosephtextView"
+                app:layout_constraintStart_toEndOf="@+id/OurLadyOfArabiatextView"
+                app:layout_constraintTop_toBottomOf="@+id/StAlphonsatextView" />
+
+            <ImageView
+                android:id="@+id/StThomasImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StGeorgetextViewBottom"
+                android:src="@drawable/ic_prayer_thomas" />
+
+            <TextView
+                android:id="@+id/StThomastextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:paddingTop="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="St. Thomas"
+                android:textSize="@dimen/_8sdp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StThomasImageView" />
+
+            <TextView
+                android:id="@+id/StThomastextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Al Nadha"
+                android:textSize="@dimen/_8sdp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StThomastextView" />
+
+            <ImageView
+                android:id="@+id/StJudeImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StJosephtextViewBottom"
+                android:src="@drawable/ic_prayer_jude" />
+
+            <TextView
+                android:id="@+id/StJudetextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="@dimen/_4sdp"
+                android:text="St. Jude"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StJudeImageView" />
+
+            <TextView
+                android:id="@+id/StJudetextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="GPO"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StJudetextView" />
+
+            <ImageView
+                android:id="@+id/StJohnsImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toStartOf="@+id/StJudeImageView"
+                app:layout_constraintStart_toEndOf="@+id/StGeorgeImageView"
+                app:layout_constraintTop_toBottomOf="@+id/StPeterstextViewBottom"
+                android:src="@drawable/ic_prayer_johns" />
+
+            <TextView
+                android:id="@+id/StJohnstextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="@dimen/_4sdp"
+                android:text="St. Johns"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/StJudetextView"
+                app:layout_constraintStart_toEndOf="@+id/StGeorgetextView"
+                app:layout_constraintTop_toBottomOf="@+id/StJohnsImageView" />
+
+            <TextView
+                android:id="@+id/StJohnstextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="Al Khan"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintEnd_toStartOf="@+id/StJosephtextView"
+                app:layout_constraintStart_toEndOf="@+id/OurLadyOfArabiatextView"
+                app:layout_constraintTop_toBottomOf="@+id/StJohnstextView" />
+
+            <ImageView
+                android:id="@+id/StGeorgeImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/OurLadyOfArabiatextViewBottom"
+                android:src="@drawable/ic_prayer_george" />
+
+            <TextView
+                android:id="@+id/StGeorgetextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:paddingTop="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="St. George"
+                android:textSize="@dimen/_8sdp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StGeorgeImageView" />
+
+            <TextView
+                android:id="@+id/StGeorgetextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="J &amp; P"
+                android:textSize="@dimen/_8sdp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StGeorgetextView" />
+
+            <ImageView
+                android:id="@+id/StJosephImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                android:src="@drawable/ic_prayer_joseph" />
+
+            <TextView
+                android:id="@+id/StJosephtextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="@dimen/_4sdp"
+                android:text="St. Joseph"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StJosephImageView" />
+
+            <TextView
+                android:id="@+id/StJosephtextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="Rolla"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StJosephtextView" />
+
+            <ImageView
+                android:id="@+id/StPetersImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toStartOf="@+id/StJosephImageView"
+                app:layout_constraintStart_toEndOf="@+id/OurLadyOfArabiaImageView"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                android:src="@drawable/ic_prayer_peter" />
+
+            <TextView
+                android:id="@+id/StPeterstextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="@dimen/_4sdp"
+                android:text="St. Peter"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/StJosephtextView"
+                app:layout_constraintStart_toEndOf="@+id/OurLadyOfArabiatextView"
+                app:layout_constraintTop_toBottomOf="@+id/StPetersImageView" />
+
+            <TextView
+                android:id="@+id/StPeterstextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="Nabba Buteena"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintEnd_toStartOf="@+id/StJosephtextView"
+                app:layout_constraintStart_toEndOf="@+id/OurLadyOfArabiatextView"
+                app:layout_constraintTop_toBottomOf="@+id/StPeterstextView" />
+
+            <ImageView
+                android:id="@+id/OurLadyOfArabiaImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                android:src="@drawable/ic_prayer_arabia" />
+
+            <TextView
+                android:id="@+id/OurLadyOfArabiatextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:paddingTop="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Our Lady of Arabia"
+                android:textSize="@dimen/_8sdp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/OurLadyOfArabiaImageView" />
+
+            <TextView
+                android:id="@+id/OurLadyOfArabiatextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Umm Al Quwain"
+                android:textSize="@dimen/_8sdp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/OurLadyOfArabiatextView" />
+
+            <ImageView
+                android:id="@+id/StFrancisOfAssisiImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StThomastextViewBottom"
+                android:src="@drawable/ic_prayer_francis" />
+
+            <TextView
+                android:id="@+id/StFrancisOfAssisitextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:paddingTop="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="St. Francis of Assisi"
+                android:textSize="@dimen/_8sdp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StFrancisOfAssisiImageView" />
+
+            <TextView
+                android:id="@+id/StFrancisOfAssisitextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Church Area"
+                android:textSize="@dimen/_8sdp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/StFrancisOfAssisitextView" />
+
+            <ImageView
+                android:id="@+id/StTheresaImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toStartOf="@+id/MarGregorisImageView"
+                app:layout_constraintStart_toEndOf="@+id/StFrancisOfAssisiImageView"
+                app:layout_constraintTop_toBottomOf="@+id/StAlphonsatextViewBottom"
+                android:src="@drawable/ic_prayer_theresa" />
+
+            <TextView
+                android:id="@+id/StTheresatextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="@dimen/_4sdp"
+                android:text="St. Theresa"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/MarGregoristextView"
+                app:layout_constraintStart_toEndOf="@+id/StFrancisOfAssisitextView"
+                app:layout_constraintTop_toBottomOf="@+id/StTheresaImageView" />
+
+            <TextView
+                android:id="@+id/StTheresatextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="Abu Shagara"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintEnd_toStartOf="@+id/MarIvaniostextView"
+                app:layout_constraintStart_toEndOf="@+id/StFrancisOfAssisitextView"
+                app:layout_constraintTop_toBottomOf="@+id/StTheresatextView" />
+
+            <ImageView
+                android:id="@+id/MarGregorisImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MarIvaniostextViewBottom"
+                android:src="@drawable/ic_prayer_gregorios" />
+
+            <TextView
+                android:id="@+id/MarGregoristextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="@dimen/_4sdp"
+                android:text="Mar Gregorios"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MarGregorisImageView" />
+
+            <TextView
+                android:id="@+id/MarGregoristextViewBottom"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="Ajman"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MarGregoristextView" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</FrameLayout>

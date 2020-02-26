@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient2"
+    tools:context=".ui.fragment.PiousAccociationsFragment">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="mscc.net.churchdirectory.ui.activity.PiousAssociationsActivity"
+        tools:showIn="@layout/activity_pious_associations">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_35sdp">
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Pious Associations"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/MCCLImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:src="@drawable/association_mccl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+            <TextView
+                android:background="@color/white"
+                android:id="@+id/MCCLtextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:padding="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="MCCL"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MCCLImageView" />
+
+            <ImageView
+                android:id="@+id/MCYMImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:src="@drawable/association_mcym"
+                app:layout_constraintEnd_toStartOf="@+id/MATHRUSAMAJAMImageView"
+                app:layout_constraintStart_toEndOf="@+id/MCCLImageView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/MCYMtextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/_4sdp"
+                android:text="MCYM"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/MATHRUSAMAJAMtextView"
+                app:layout_constraintStart_toEndOf="@+id/MCCLtextView"
+                app:layout_constraintTop_toBottomOf="@+id/MCYMImageView" />
+
+            <ImageView
+                android:id="@+id/MATHRUSAMAJAMImageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/association_mathrusamajam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/MATHRUSAMAJAMtextView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:textSize="@dimen/_8sdp"
+                android:padding="@dimen/_4sdp"
+                android:text="MATHRUSAMAJAM"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MATHRUSAMAJAMImageView" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</FrameLayout>

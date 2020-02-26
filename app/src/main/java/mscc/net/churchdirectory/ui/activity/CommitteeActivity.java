@@ -20,12 +20,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import mscc.net.churchdirectory.database.CommitteeDatabase;
 import mscc.net.churchdirectory.R;
 
 import mscc.net.churchdirectory.model.Committee;
+import mscc.net.churchdirectory.model.CommitteeMember;
 
 public class CommitteeActivity extends AppCompatActivity {
 
@@ -49,7 +51,16 @@ public class CommitteeActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
         committeeList = committeeDatabase.getAllCommittees();
-        Collections.sort(committeeList, (o1, o2) -> o1.getCommitteeRank().compareTo(o2.getCommitteeRank()));
+        Collections.sort(committeeList, new Comparator<Committee>() {
+            @Override
+            public int compare(Committee lhs, Committee rhs) {
+                if(Integer.parseInt(lhs.getCommitteeRank()) < Integer.parseInt(rhs.getCommitteeRank())) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
 
         layoutManager = new LinearLayoutManager(this);
         adapter = new CommitteeAdapter(committeeList, this);
@@ -89,6 +100,18 @@ public class CommitteeActivity extends AppCompatActivity {
     private void initHierarchies() {
         committeeList.clear();
         committeeList = committeeDatabase.getAllCommittees();
+
+        Collections.sort(committeeList, new Comparator<Committee>() {
+            @Override
+            public int compare(Committee lhs, Committee rhs) {
+                if(Integer.parseInt(lhs.getCommitteeRank()) < Integer.parseInt(rhs.getCommitteeRank())) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
+
         recyclerView.setAdapter(new CommitteeAdapter(committeeList, this));
         recyclerView.invalidate();
     }
