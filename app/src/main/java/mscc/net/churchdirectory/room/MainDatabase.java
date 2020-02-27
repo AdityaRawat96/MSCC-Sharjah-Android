@@ -20,7 +20,7 @@ import mscc.net.churchdirectory.room.model.Notification;
  * Created by Dany on 18-02-2018.
  */
 
-@Database(entities = {Family.class, Contact.class, Member.class, Article.class, Notification.class}, version = 7, exportSchema = false)
+@Database(entities = {Family.class, Contact.class, Member.class, Article.class, Notification.class}, version = 8, exportSchema = false)
 public abstract class MainDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "SMCCDatabase";
