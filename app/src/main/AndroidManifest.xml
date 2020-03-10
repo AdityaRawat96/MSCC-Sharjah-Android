@@ -74,6 +74,9 @@
         <activity android:name=".ui.activity.PushNotificationActivity" />
         <activity android:name=".ui.activity.UpdateProfileActivity" />
         <activity android:name=".ui.activity.AddMemberActivity" />
+        <activity android:name=".ui.activity.PiousFragmentLauncher" />
+        <activity android:name=".ui.activity.PrayerFragmentLauncher" />
+        <activity android:name=".ui.activity.MinistryFragmentLauncher" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"

@@ -17,11 +17,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import mscc.net.churchdirectory.database.MetropolitianDatabase;
 import mscc.net.churchdirectory.R;
 import mscc.net.churchdirectory.adapter.HierarchyAdapter;
+import mscc.net.churchdirectory.model.Hierarchy;
 import mscc.net.churchdirectory.model.Metropolitian;
 
 public class HierarchyActivity extends AppCompatActivity {
@@ -44,7 +46,16 @@ public class HierarchyActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
         metropolitians = metropolitianDatabase.getAllMetropolitians();
-        Collections.sort(metropolitians, (o1, o2) -> o1.getMetropolitianRank().compareTo(o2.getMetropolitianRank()));
+        Collections.sort(metropolitians, new Comparator<Metropolitian>() {
+            @Override
+            public int compare(Metropolitian lhs, Metropolitian rhs) {
+                if(Integer.parseInt(lhs.getMetropolitianRank()) < Integer.parseInt(rhs.getMetropolitianRank())) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
 
         layoutManager = new LinearLayoutManager(this);
         adapter = new HierarchyAdapter(metropolitians, this);
@@ -84,6 +95,16 @@ public class HierarchyActivity extends AppCompatActivity {
     private void initHierarchies() {
         metropolitians.clear();
         metropolitians = metropolitianDatabase.getAllMetropolitians();
+        Collections.sort(metropolitians, new Comparator<Metropolitian>() {
+            @Override
+            public int compare(Metropolitian lhs, Metropolitian rhs) {
+                if(Integer.parseInt(lhs.getMetropolitianRank()) < Integer.parseInt(rhs.getMetropolitianRank())) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
         recyclerView.setAdapter(new HierarchyAdapter(metropolitians, this));
         recyclerView.invalidate();
     }
