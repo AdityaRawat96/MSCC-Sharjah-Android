@@ -1,11 +1,13 @@
 package mscc.net.churchdirectory.ui.activity;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 
 import mscc.net.churchdirectory.ui.fragment.ContactsFragment;
 import mscc.net.churchdirectory.LoginActivity;
@@ -16,7 +18,7 @@ public class ContactsActivity extends AppCompatActivity {
 
     private ContactsFragment fragment;
     private FragmentManager manager;
-    private android.support.v7.widget.Toolbar toolbar;
+    private Toolbar toolbar;
     private SearchView searchView;
 
     @Override

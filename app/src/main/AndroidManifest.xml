@@ -77,9 +77,11 @@
         <activity android:name=".ui.activity.PiousFragmentLauncher" />
         <activity android:name=".ui.activity.PrayerFragmentLauncher" />
         <activity android:name=".ui.activity.MinistryFragmentLauncher" />
+        <activity android:name=".ui.activity.RegisterGuestActivity"
+            android:parentActivityName=".LoginActivity"/>
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--
              Set color used with incoming notification messages. This is used when no color is set for the incoming

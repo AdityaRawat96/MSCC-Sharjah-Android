@@ -3,7 +3,6 @@ package mscc.net.churchdirectory.ui.activity;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -13,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import mscc.net.churchdirectory.room.MainDatabase;
 import mscc.net.churchdirectory.ui.fragment.NotificationDialogFragment;
@@ -70,6 +71,7 @@ public class AddMemberActivity extends AppCompatActivity {
         relations.add("Father");
         relations.add("Mother");
         relations.add("Wife");
+        relations.add("Spouse");
         relations.add("Husband");
         relations.add("Son");
         relations.add("Daughter");

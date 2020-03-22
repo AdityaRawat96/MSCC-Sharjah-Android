@@ -1,8 +1,9 @@
 package mscc.net.churchdirectory.room.model;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Index;
-import android.arch.persistence.room.PrimaryKey;
+
+import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
 /**
  * Created by Dany on 18-02-2018.
@@ -14,25 +15,29 @@ public class Family {
     @PrimaryKey
     private int id;
     private String name;
+    private String diocese;
     private String address;
     private String prayerGroup;
     private String permanentAddress;
     private String homeParish;
     private String image;
     private String emergencyContact;
+    private String dob;
     private String dom;
 
     private Boolean visible;
 
-    public Family(int id, String name, String address, String prayerGroup, String permanentAddress, String homeParish, String image, String emergencyContact, String dom, Boolean visible) {
+    public Family(int id, String name, String diocese, String address, String prayerGroup, String permanentAddress, String homeParish, String image, String emergencyContact, String dob, String dom, Boolean visible) {
         this.id = id;
         this.name = name;
+        this.diocese = diocese;
         this.address = address;
         this.prayerGroup = prayerGroup;
         this.permanentAddress = permanentAddress;
         this.homeParish = homeParish;
         this.image = image;
         this.emergencyContact = emergencyContact;
+        this.dob = dob;
         this.dom = dom;
         this.visible = visible;
     }
@@ -51,6 +56,14 @@ public class Family {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDiocese() {
+        return diocese;
+    }
+
+    public void setDiocese(String diocese) {
+        this.diocese = diocese;
     }
 
     public String getAddress() {
@@ -99,6 +112,14 @@ public class Family {
 
     public void setEmergencyContact(String emergencyContact) {
         this.emergencyContact = emergencyContact;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public String getDom() {

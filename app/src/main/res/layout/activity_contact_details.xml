@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context="mscc.net.churchdirectory.com.net.churchdirectory.ui.activity.ContactDetailsActivity">
+    tools:context="mscc.net.churchdirectory.ui.activity.ContactDetailsActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/nested_sv_contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
@@ -140,9 +140,9 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -171,7 +171,7 @@
                             android:textColor="@color/textPrimary"
                             android:textSize="@dimen/text_size_heading" />
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_contacts"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -179,9 +179,9 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -218,6 +218,29 @@
                             android:layout_marginRight="8dp"
                             android:fontFamily="@font/raleway"
                             android:text="@string/placeholder_text_address"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="@dimen/text_size_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="Diocese"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <TextView
+                            android:id="@+id/contact_diocese"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="John Doe's Diocese"
                             android:textColor="@color/textSecondary"
                             android:textSize="@dimen/text_size_content" />
 
@@ -299,6 +322,30 @@
                             android:layout_marginRight="8dp"
                             android:layout_marginTop="16dp"
                             android:fontFamily="@font/raleway"
+                            android:text="Date of Birth"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="@dimen/text_size_heading" />
+
+                        <TextView
+                            android:id="@+id/contact_dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/placeholder_date_time"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="@dimen/text_size_content" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/raleway"
                             android:text="@string/static_date_of_marriage"
                             android:textColor="@color/textPrimary"
                             android:textSize="@dimen/text_size_heading" />
@@ -317,9 +364,9 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -348,7 +395,7 @@
                             android:textColor="@color/textPrimary"
                             android:textSize="@dimen/text_size_heading" />
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_members"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -357,9 +404,9 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -403,12 +450,12 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
 
             </LinearLayout>
 
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <RelativeLayout
             android:id="@+id/loading"
@@ -426,7 +473,7 @@
 
         </RelativeLayout>
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

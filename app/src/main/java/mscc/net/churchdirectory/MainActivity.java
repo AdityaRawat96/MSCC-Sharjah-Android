@@ -17,15 +17,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.NavigationView;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -38,6 +29,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.perf.FirebasePerformance;
@@ -674,12 +675,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         for (Directory.Family family : response.getFamily()) {
             familyList.add(new Family(family.getId(),
                     family.getName(),
+                    family.getDiocese(),
                     family.getAddress(),
                     family.getPrayerGroup(),
                     family.getPermanentAddress(),
                     family.getHomeParish(),
                     family.getImage(),
                     family.getEmergencyContact(),
+                    family.getDob(),
                     family.getDom(),
                     family.getVisible()));
 
@@ -830,6 +833,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return toggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
+    @SuppressLint("WrongConstant")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         item.setChecked(true);

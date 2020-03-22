@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mscc.net.churchdirectory.com.net.churchdirectory.ui.fragment.CalenderItemFragment">
+    tools:context="mscc.net.churchdirectory.ui.fragment.CalenderItemFragment">
 
     <com.jsibbold.zoomage.ZoomageView
         android:id="@+id/calender_image"

@@ -7,14 +7,14 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:theme="@style/AppTheme.Dark"
-    tools:context="mscc.net.churchdirectory.com.net.churchdirectory.LoginActivity">
+    tools:context="mscc.net.churchdirectory.LoginActivity">
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:background="@drawable/backgroundbottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.AppBarLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/main_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -63,9 +63,9 @@
 
             </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>
 
-        </android.support.design.widget.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
@@ -78,7 +78,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardElevation="0dp">
@@ -127,7 +127,7 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -145,18 +145,30 @@
                         android:layout_gravity="center"
                         android:orientation="vertical">
 
-                        <android.support.design.widget.TextInputLayout
+                        <com.llollox.androidtoggleswitch.widgets.ToggleSwitch
+                            android:id="@+id/loginToggleSwitch"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="40dp"
+                            android:layout_marginTop="20dp"
+                            app:checkedBackgroundColor="#FA19A3"
+                            app:checkedTextColor="#FFFFFF"
+                            app:uncheckedBackgroundColor="#FFFFFF"
+                            app:uncheckedTextColor="#FA19A3"
+                            app:textToggleLeft="Member"
+                            app:textToggleRight="Guest" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
                             android:textColorHint="#FFFFFF">
 
                             <AutoCompleteTextView
                                 android:id="@+id/email"
-                                android:backgroundTint="@color/white"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/raleway"
+                                android:backgroundTint="@color/white"
+                                android:fontFamily="sans-serif"
                                 android:hint="@string/placeholder_text_username"
                                 android:inputType="textEmailAddress"
                                 android:maxLines="1"
@@ -164,9 +176,9 @@
                                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                                 android:textColor="@color/white" />
 
-                        </android.support.design.widget.TextInputLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -175,10 +187,10 @@
 
                             <EditText
                                 android:id="@+id/password"
-                                android:backgroundTint="@color/white"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/raleway"
+                                android:backgroundTint="@color/white"
+                                android:fontFamily="sans-serif"
                                 android:hint="@string/prompt_password"
                                 android:imeActionId="6"
                                 android:imeActionLabel="@string/action_sign_in_short"
@@ -189,7 +201,7 @@
                                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                                 android:textColor="@color/white" />
 
-                        </android.support.design.widget.TextInputLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
                         <Button
                             android:id="@+id/email_sign_in_button"
@@ -246,26 +258,6 @@
                                 android:textColor="@color/white"
                                 android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="|"
-                                android:textSize="35dp"
-                                android:textColor="@color/white"
-                                android:textStyle="normal"/>
-
-
-                            <Button
-                                android:id="@+id/guestLoginButton"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:background="?attr/selectableItemBackground"
-                                android:foreground="?attr/selectableItemBackgroundBorderless"
-                                android:text="GUEST"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
                         </LinearLayout>
 
 
@@ -281,8 +273,8 @@
 
             </LinearLayout>
 
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
 
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </LinearLayout>

@@ -2,23 +2,22 @@ package mscc.net.churchdirectory.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import mscc.net.churchdirectory.ui.activity.ArticleActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import mscc.net.churchdirectory.R;
-
 import mscc.net.churchdirectory.model.Articles;
+import mscc.net.churchdirectory.ui.activity.ArticleActivity;
 
 /**
  * Created by Dany on 02-01-2018.

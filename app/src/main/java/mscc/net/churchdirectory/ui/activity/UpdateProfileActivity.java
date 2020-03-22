@@ -4,12 +4,13 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -23,6 +24,8 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 import mscc.net.churchdirectory.room.MainDatabase;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -72,11 +75,13 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
     private NestedScrollView nestedScrollView;
 
     private EditText name;
+    private EditText diocese;
     private EditText address;
     private Spinner prayerGroup;
     private EditText permanentAddress;
     private EditText homeParish;
     private EditText emergencyContact;
+    private EditText dob;
     private EditText dom;
 
     private ImageView image;
@@ -104,7 +109,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
     private EditText etContactEmail;
     private EditText etContactMobileSecondary;
     private Button addMember;
-
+    private Boolean isDobValid = false;
     private Boolean isDomValid = false;
     private Boolean isPrayerGroupValid = false;
 
@@ -112,7 +117,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
 
     private Boolean isMemberModified = false;
 
-    private android.support.v7.widget.Toolbar toolbar;
+    private Toolbar toolbar;
 
     private List<String> prayerGroups = new ArrayList<>();
 
@@ -182,8 +187,33 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
             startActivity(i);
         });
 
-        dom.setOnFocusChangeListener((v, hasFocus) -> showDatePicker());
-        dom.setOnClickListener(v -> showDatePicker());
+        dob.setOnFocusChangeListener((v, hasFocus) -> showDatePickerDOB());
+        dob.setOnClickListener(v -> showDatePickerDOB());
+
+        dob.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                isDobValid = Pattern.matches(REGEX_DATE, s) || s.length() == 0;
+                if (isDobValid) {
+                    dob.setError(null);
+                } else {
+                    dob.setError("Pattern doesn't match");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        dom.setOnFocusChangeListener((v, hasFocus) -> showDatePickerDOM());
+        dom.setOnClickListener(v -> showDatePickerDOM());
 
         dom.addTextChangedListener(new TextWatcher() {
             @Override
@@ -221,18 +251,18 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
 
     private void initPrayerGroups() {
         prayerGroups.add("- SELECT PRAYER GROUP -");
-        prayerGroups.add("Our Lady of Arabia");
-        prayerGroups.add("St. Peter's");
-        prayerGroups.add("St. Joseph's");
-        prayerGroups.add("St. George");
-        prayerGroups.add("St. John's");
-        prayerGroups.add("St. Jude");
-        prayerGroups.add("St. Thomas");
-        prayerGroups.add("St. Alphonsa");
-        prayerGroups.add("Mar Ivanios");
-        prayerGroups.add("St. Francis of Assisi");
-        prayerGroups.add("St. Theresa's");
-        prayerGroups.add("Mar Gregorios");
+        prayerGroups.add("Our Lady of Arabia Prayer Group - Umm Al Quwain");
+        prayerGroups.add("St. Peter Prayer Group - Nabba Buteena");
+        prayerGroups.add("St. Joseph Prayer - Rolla");
+        prayerGroups.add("St. George Prayer Group - J & P");
+        prayerGroups.add("St. Johns Prayer Group  - Al Khan");
+        prayerGroups.add("St. Jude Prayer Group - GPO");
+        prayerGroups.add("St. Thomas Prayer Group - Al Nadha");
+        prayerGroups.add("St. Alphonsa Prayer Group - National Paint");
+        prayerGroups.add("Mar Ivanios Prayer Group - Ajman");
+        prayerGroups.add("St. Francis of Assisi Prayer - Church Area");
+        prayerGroups.add("St. Theresa Prayer Group - Abu Shagara");
+        prayerGroups.add("Mar Gregorios Prayer Group - Ajman");
     }
 
     private void onDatabaseError(Throwable throwable) {
@@ -251,15 +281,23 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
         return pId;
     }
 
-    @SuppressLint("CheckResult")
+    @SuppressLint({"CheckResult", "RestrictedApi"})
     private void setUpContact(Family family) {
         familyData = family;
         name.setText(family.getName());
+        diocese.setText(family.getDiocese());
         address.setText(family.getAddress());
         permanentAddress.setText(family.getPermanentAddress());
         homeParish.setText(family.getHomeParish());
         emergencyContact.setText(family.getEmergencyContact());
+        isDobValid = Pattern.matches(REGEX_DATE, family.getDob());
         isDomValid = Pattern.matches(REGEX_DATE, family.getDom());
+        dob.setText(family.getDob());
+        if (isDobValid) {
+            dob.setError(null);
+        } else {
+            dob.setError("Pattern is DD MMM");
+        }
         dom.setText(family.getDom());
         if (isDomValid) {
             dom.setError(null);
@@ -296,11 +334,21 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
         super.onBackPressed();
     }
 
-    private void showDatePicker() {
+    private void showDatePickerDOB() {
         Calendar calendar = Calendar.getInstance();
         @SuppressLint("DefaultLocale") DatePickerDialog dpd = new DatePickerDialog(this,
                 (datePicker, year, month, day) -> {
-                    dom.setText(String.format("%d %s", day, getMonth(month-1)));
+                    dob.setText(String.format("%d %s", day, getMonth(month+1)));
+                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));
+        dpd.show();
+    }
+
+    private void showDatePickerDOM() {
+        Calendar calendar = Calendar.getInstance();
+        @SuppressLint("DefaultLocale") DatePickerDialog dpd = new DatePickerDialog(this,
+                (datePicker, year, month, day) -> {
+                    dom.setText(String.format("%d %s", day, getMonth(month+1)));
                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH));
         dpd.show();
@@ -421,6 +469,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
     private void initViews() {
         name = findViewById(R.id.contact_name);
         address = findViewById(R.id.contact_address);
+        diocese = findViewById(R.id.contact_diocese);
         prayerGroup = findViewById(R.id.contact_prayer_group);
         permanentAddress = findViewById(R.id.contact_permanent_address);
         homeParish = findViewById(R.id.contact_home_parish);
@@ -431,6 +480,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
         image = findViewById(R.id.family_image);
         fab = findViewById(R.id.fab);
         emergencyContact = findViewById(R.id.contact_emergency_contact);
+        dob = findViewById(R.id.contact_dob);
         dom = findViewById(R.id.contact_dom);
         etContactMobile = findViewById(R.id.contact_mobile);
         etContactLandline = findViewById(R.id.contact_landline);
@@ -479,8 +529,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements MembersA
             cons.add(new Directory.Contact(CONTACT_TYPE_MOBILE, CONTACT_NAME_MOBILE_SECONDARY, etContactMobileSecondary.getText().toString()));
         }
 
-        return new Directory.Family(id, name.getText().toString(), address.getText().toString(), prayerGroup.getSelectedItem().toString(), permanentAddress.getText().toString()
-                , homeParish.getText().toString(), familyData.getImage(), emergencyContact.getText().toString(), dom.getText().toString(), mems, cons, true);
+        return new Directory.Family(id, name.getText().toString(), diocese.getText().toString(), address.getText().toString(), prayerGroup.getSelectedItem().toString(), permanentAddress.getText().toString()
+                , homeParish.getText().toString(), familyData.getImage(), emergencyContact.getText().toString(), dob.getText().toString(), dom.getText().toString(), mems, cons, true);
     }
 
     @Override

@@ -15,6 +15,9 @@ public class Families {
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("diocese")
+    @Expose
+    private String diocese;
     @SerializedName("number")
     @Expose
     private Integer number;
@@ -75,6 +78,14 @@ public class Families {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDiocese() {
+        return diocese;
+    }
+
+    public void setDiocese(String diocese) {
+        this.diocese = diocese;
     }
 
     public Integer getNumber() {

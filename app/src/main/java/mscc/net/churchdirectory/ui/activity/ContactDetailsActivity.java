@@ -11,11 +11,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +28,8 @@ import android.widget.TextView;
 
 import mscc.net.churchdirectory.room.MainDatabase;
 import mscc.net.churchdirectory.ui.fragment.NotificationDialogFragment;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 import com.yalantis.ucrop.UCrop;
 
@@ -80,10 +83,12 @@ public class ContactDetailsActivity extends AppCompatActivity {
 
     private TextView name;
     private TextView address;
+    private TextView diocese;
     private TextView prayerGroup;
     private TextView permanentAddress;
     private TextView homeParish;
     private TextView emergencyContact;
+    private TextView dob;
     private TextView dom;
 
     private ImageView image;
@@ -108,7 +113,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
 
     private int id;
 
-    private android.support.v7.widget.Toolbar toolbar;
+    private Toolbar toolbar;
 
     private Observable<Response<Directory>> updateProfile(String id, String token, Directory.Family family) {
         return ConnectionManager
@@ -169,15 +174,17 @@ public class ContactDetailsActivity extends AppCompatActivity {
         Log.e("Database Error", throwable.getLocalizedMessage());
     }
 
-    @SuppressLint("CheckResult")
+    @SuppressLint({"CheckResult", "RestrictedApi"})
     private void setUpContact(Family family) {
         familyData = family;
         name.setText(family.getName());
+        diocese.setText(family.getDiocese());
         address.setText(family.getAddress());
         prayerGroup.setText((family.getPrayerGroup()));
         permanentAddress.setText(family.getPermanentAddress());
         homeParish.setText(family.getHomeParish());
         emergencyContact.setText(family.getEmergencyContact());
+        dob.setText(family.getDob());
         dom.setText(family.getDom());
         fab.setVisibility(Objects.equals(String.valueOf(family.getId()), SessionManager.getInstance().getUserId(this)) ? View.VISIBLE : View.GONE);
         editImage.setVisibility(Objects.equals(String.valueOf(family.getId()), SessionManager.getInstance().getUserId(this)) ? View.VISIBLE : View.GONE);
@@ -228,6 +235,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
     @SuppressLint("CheckResult")
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         Log.e("requestCode", requestCode + "");
         Log.e("resultCode", resultCode + "");
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
@@ -327,6 +335,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
 
     private void initViews() {
         name = findViewById(R.id.contact_name);
+        diocese = findViewById(R.id.contact_diocese);
         address = findViewById(R.id.contact_address);
         prayerGroup = findViewById(R.id.contact_prayer_group);
         permanentAddress = findViewById(R.id.contact_permanent_address);
@@ -340,6 +349,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         editImage = findViewById(R.id.image_edit);
         emergencyContact = findViewById(R.id.contact_emergency_contact);
+        dob = findViewById(R.id.contact_dob);
         dom = findViewById(R.id.contact_dom);
         imageLoading = findViewById(R.id.image_loading);
 
@@ -374,7 +384,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
         }
 
 
-        return new Directory.Family(id, familyData.getName(), familyData.getAddress(), familyData.getPrayerGroup(), familyData.getPermanentAddress()
-                , familyData.getHomeParish(), familyData.getImage(), familyData.getEmergencyContact(), familyData.getDom(), mems, cons, familyData.getVisible());
+        return new Directory.Family(id, familyData.getName(), familyData.getDiocese(), familyData.getAddress(), familyData.getPrayerGroup(), familyData.getPermanentAddress()
+                , familyData.getHomeParish(), familyData.getImage(), familyData.getEmergencyContact(), familyData.getDob(), familyData.getDom(), mems, cons, familyData.getVisible());
     }
 }

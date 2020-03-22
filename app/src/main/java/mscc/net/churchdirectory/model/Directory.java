@@ -130,6 +130,9 @@ public class Directory {
         @SerializedName("name")
         @Expose
         private String name;
+        @SerializedName("diocese")
+        @Expose
+        private String diocese;
         @SerializedName("address")
         @Expose
         private String address;
@@ -148,6 +151,9 @@ public class Directory {
         @SerializedName("emergencyContact")
         @Expose
         private String emergencyContact;
+        @SerializedName("dob")
+        @Expose
+        private String dob;
         @SerializedName("dom")
         @Expose
         private String dom;
@@ -161,15 +167,17 @@ public class Directory {
         @Expose
         private List<Contact> contacts = null;
 
-        public Family(int id, String name, String address, String prayerGroup, String permanentAddress, String homeParish, String image, String emergencyContact, String dom, List<Member> members, List<Contact> contacts, Boolean visible) {
+        public Family(int id, String name, String diocese, String address, String prayerGroup, String permanentAddress, String homeParish, String image, String emergencyContact, String dob, String dom, List<Member> members, List<Contact> contacts, Boolean visible) {
             this.id = id;
             this.name = name;
+            this.diocese = diocese;
             this.address = address;
             this.prayerGroup = prayerGroup;
             this.permanentAddress = permanentAddress;
             this.homeParish = homeParish;
             this.image = image;
             this.emergencyContact = emergencyContact;
+            this.dob = dob;
             this.dom = dom;
             this.members = members;
             this.contacts = contacts;
@@ -190,6 +198,14 @@ public class Directory {
 
         public void setName(String name) {
             this.name = name;
+        }
+
+        public String getDiocese() {
+            return diocese;
+        }
+
+        public void setDiocese(String diocese) {
+            this.diocese = diocese;
         }
 
         public String getAddress() {
@@ -238,6 +254,14 @@ public class Directory {
 
         public void setEmergencyContact(String emergencyContact) {
             this.emergencyContact = emergencyContact;
+        }
+
+        public String getDob() {
+            return dob;
+        }
+
+        public void setDob(String dob) {
+            this.dob = dob;
         }
 
         public String getDom() {

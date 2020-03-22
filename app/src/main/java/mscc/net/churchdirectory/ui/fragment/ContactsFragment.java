@@ -2,11 +2,12 @@ package mscc.net.churchdirectory.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -132,12 +133,14 @@ public class ContactsFragment extends Fragment {
 
             allContacts.add(new Directory.Family(family.getId(),
                     family.getName(),
+                    family.getDiocese(),
                     family.getAddress(),
                     family.getPrayerGroup(),
                     family.getPermanentAddress(),
                     family.getHomeParish(),
                     family.getImage(),
                     family.getEmergencyContact(),
+                    family.getDob(),
                     family.getDom(), convertMembers(members), convertContacts(contactList),
                     family.getVisible()));
         }
@@ -209,12 +212,14 @@ public class ContactsFragment extends Fragment {
         for (Directory.Family family : response.getFamily()) {
             familyList.add(new Family(family.getId(),
                     family.getName(),
+                    family.getDiocese(),
                     family.getAddress(),
                     family.getPrayerGroup(),
                     family.getPermanentAddress(),
                     family.getHomeParish(),
                     family.getImage(),
                     family.getEmergencyContact(),
+                    family.getDob(),
                     family.getDom(),
                     family.getVisible()));
 

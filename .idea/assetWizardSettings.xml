@@ -90,7 +90,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="38" />
+                                                <entry key="scalingPercent" value="80" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -122,12 +122,11 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="125688" />
                                       <entry key="backgroundImage" value="C:\Users\Aditya Rawat\Downloads\Compressed\Sharjah_icons\Sharjah_icons\side_menu_icon.png" />
-                                      <entry key="foregroundImage" value="C:\Users\Aditya Rawat\Downloads\Compressed\Sharjah_icons\Sharjah_icons\side_menu_icon.png" />
-                                      <entry key="generateWebIcon" value="false" />
-                                      <entry key="legacyIconShape" value="NONE" />
-                                      <entry key="outputName" value="hamburger" />
-                                      <entry key="webIconShape" value="NONE" />
+                                      <entry key="foregroundImage" value="C:\Users\Aditya Rawat\Downloads\APP ICON ONLY.jpg" />
+                                      <entry key="legacyIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
                                 </PersistentState>

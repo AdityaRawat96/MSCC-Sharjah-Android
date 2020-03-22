@@ -1,7 +1,7 @@
 package mscc.net.churchdirectory.room.model;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 /**
  * Created by Dany on 18-02-2018.

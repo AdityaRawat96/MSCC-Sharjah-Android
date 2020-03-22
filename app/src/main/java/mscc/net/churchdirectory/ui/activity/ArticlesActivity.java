@@ -1,9 +1,10 @@
 package mscc.net.churchdirectory.ui.activity;
-
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 
 import mscc.net.churchdirectory.ui.fragment.ArticlesFragment;
 
@@ -13,7 +14,7 @@ public class ArticlesActivity extends AppCompatActivity {
 
     private ArticlesFragment fragment;
     private FragmentManager manager;
-    private android.support.v7.widget.Toolbar toolbar;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
