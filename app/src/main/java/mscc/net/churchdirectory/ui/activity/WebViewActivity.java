@@ -102,19 +102,5 @@ public class WebViewActivity extends AppCompatActivity {
             startActivity(new Intent(WebViewActivity.this, LoginActivity.class));
             finish();
         }
-
-        @JavascriptInterface
-        public void sucessfulLogin() {
-            SessionManager.getInstance().setSession(WebViewActivity.this, "GUEST", "GUEST", "GUEST", false);
-            SharedPreferences sharedPreferences = PreferenceManager
-                    .getDefaultSharedPreferences(WebViewActivity.this);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("hasLoggedIn", "true");
-            editor.putString("guestLogin", "true");
-            editor.apply();
-            Toast.makeText(WebViewActivity.this, "Logged In as Guest!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(WebViewActivity.this, MainActivity.class));
-            finish();
-        }
     }
 }

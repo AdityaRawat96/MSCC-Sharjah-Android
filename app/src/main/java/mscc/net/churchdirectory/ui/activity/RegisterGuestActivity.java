@@ -114,6 +114,8 @@ public class RegisterGuestActivity extends AppCompatActivity {
                             finish();
                             Intent intent = new Intent(RegisterGuestActivity.this, LoginActivity.class);
                             startActivity(intent);
+                        }else{
+                            Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

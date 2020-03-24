@@ -353,15 +353,16 @@ public class LoginActivity extends AppCompatActivity {
 
             if(result.equalsIgnoreCase("true"))
             {
-                /* Here launching another activity when login successful. If you persist login state
-                use sharedPreferences of Android. and logout button to clear sharedPreferences.
-                 */
-
-                Toast.makeText(LoginActivity.this, "SUCCESSFUL", Toast.LENGTH_SHORT).show();
-
-               // Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-               // startActivity(intent);
-               // LoginActivity.this.finish();
+                SessionManager.getInstance().setSession(LoginActivity.this, "GUEST", "GUEST", "GUEST", false);
+                SharedPreferences sharedPreferences = PreferenceManager
+                        .getDefaultSharedPreferences(LoginActivity.this);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("hasLoggedIn", "true");
+                editor.putString("guestLogin", "true");
+                editor.apply();
+                Toast.makeText(LoginActivity.this, "Logged In as Guest!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
 
             }else if (result.equalsIgnoreCase("false")){
 
