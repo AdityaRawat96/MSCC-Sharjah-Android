@@ -21,6 +21,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.llollox.androidtoggleswitch.widgets.ToggleSwitch;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -86,19 +89,14 @@ public class LoginActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
-        if(getIntent().getExtras()!=null){
-            if(getIntent().getBooleanExtra("SplashRedirect", false)){
-                getSupportActionBar().setHomeButtonEnabled(false);
-                getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-            }else{
-                getSupportActionBar().setHomeButtonEnabled(true);
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            }
+        if (!SessionManager.getInstance().isLoggedIn(this))
+        {
+            getSupportActionBar().setHomeButtonEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }else{
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
 
         loginToggleSwitch.setOnChangeListener(new ToggleSwitch.OnChangeListener(){
             @Override
@@ -109,12 +107,12 @@ public class LoginActivity extends AppCompatActivity {
 
         signIn.setOnClickListener(view -> {
 
-           if(toggleIndex == 0){
-               auth(email.getText().toString(), password.getText().toString())
-                       .subscribe(this::setAuth, this::authError);
-           }else{
-               checkLogin();
-           }
+            if(toggleIndex == 0){
+                auth(email.getText().toString(), password.getText().toString())
+                        .subscribe(this::setAuth, this::authError);
+            }else{
+                checkLogin();
+            }
 
         });
 
@@ -351,33 +349,32 @@ public class LoginActivity extends AppCompatActivity {
 
             pdLoading.dismiss();
 
-            if(result.equalsIgnoreCase("true"))
-            {
-                SessionManager.getInstance().setSession(LoginActivity.this, "GUEST", "GUEST", "GUEST", false);
-                SharedPreferences sharedPreferences = PreferenceManager
-                        .getDefaultSharedPreferences(LoginActivity.this);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("hasLoggedIn", "true");
-                editor.putString("guestLogin", "true");
-                editor.apply();
-                Toast.makeText(LoginActivity.this, "Logged In as Guest!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
-
-            }else if (result.equalsIgnoreCase("false")){
-
-                // If username and password does not match display a error message
-                Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
-
-            } else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-
-                Toast.makeText(LoginActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
-
+            try {
+                //converting response to json object
+                JSONObject obj = new JSONObject(result);
+                //if no error in response
+                if (obj.getBoolean("status")) {
+                    SessionManager.getInstance().setSession(LoginActivity.this, "GUEST", "GUEST", "GUEST", false);
+                    SharedPreferences sharedPreferences = PreferenceManager
+                            .getDefaultSharedPreferences(LoginActivity.this);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("hasLoggedIn", "true");
+                    editor.putString("guestLogin", "true");
+                    editor.apply();
+                    Toast.makeText(LoginActivity.this, "Logged In as Guest!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
+                }else if (!obj.getBoolean("status")){
+                    Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Toast.makeText(LoginActivity.this, "Exception: " + e, Toast.LENGTH_LONG).show();
             }
+
         }
 
     }
-
 
 }
 

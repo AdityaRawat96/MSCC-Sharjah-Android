@@ -45,7 +45,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
         holder.dateTime.setText(notifications.get(position).getDate());
         holder.message.setText(notifications.get(position).getTitle());
 
-        if (notifications.get(position).getImage() != null) {
+        if (notifications.get(position).getImage().trim().length() != 0) {
             if (!notifications.get(position).getImage().isEmpty()) {
                 Picasso.get().load(notifications.get(position).getImage())
                         .error(R.drawable.ic_placeholder_background)
@@ -54,6 +54,8 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
                         .resize(100, 100)
                         .into(holder.image);
             }
+        }else {
+            Picasso.get().load(R.drawable.announcementicon).into(holder.image);
         }
 
         holder.cardView.setOnClickListener(v -> {

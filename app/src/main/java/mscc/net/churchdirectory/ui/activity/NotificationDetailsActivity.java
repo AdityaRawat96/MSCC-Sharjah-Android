@@ -65,10 +65,14 @@ public class NotificationDetailsActivity extends AppCompatActivity {
             }
         });
 
-        Picasso.get().load(notification.getImage())
-                .error(R.drawable.ic_placeholder_background)
-                .placeholder(R.drawable.ic_placeholder_background)
-                .into(image);
+        if(notification.getImage().trim().length() == 0){
+            image.setVisibility(View.GONE);
+        }else{
+            Picasso.get().load(notification.getImage())
+                    .error(R.drawable.ic_placeholder_background)
+                    .placeholder(R.drawable.ic_placeholder_background)
+                    .into(image);
+        }
 
         messageSection.setVisibility(notification.getMessage().length() > 0 ? View.VISIBLE : View.GONE);
         message.setText(notification.getMessage());

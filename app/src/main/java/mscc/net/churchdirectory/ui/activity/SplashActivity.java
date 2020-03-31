@@ -50,9 +50,7 @@ public class SplashActivity extends Activity implements MediaPlayer.OnCompletion
         this.finish();
         if (!SessionManager.getInstance().isLoggedIn(this))
         {
-            Intent i = new Intent(this, LoginActivity.class);
-            i.putExtra("SplashRedirect", true);
-            startActivity(i);
+            startActivity(new Intent(this, LoginActivity.class));
         }else{
             startActivity(new Intent(this, MainActivity.class));
         }
@@ -64,9 +62,7 @@ public class SplashActivity extends Activity implements MediaPlayer.OnCompletion
     public void onCompletion(MediaPlayer mp) {
         if (!SessionManager.getInstance().isLoggedIn(this))
         {
-            Intent i = new Intent(this, LoginActivity.class);
-            i.putExtra("SplashRedirect", true);
-            startActivity(i);
+            startActivity(new Intent(this, LoginActivity.class));
         }else{
             startActivity(new Intent(this, MainActivity.class));
         }

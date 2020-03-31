@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="mscc.net.churchdirectory.ui.activity.WebViewActivity">
@@ -17,6 +18,12 @@
         app:layout_constraintTop_toTopOf="parent" >
 
     </WebView>
+
+    <es.voghdev.pdfviewpager.library.RemotePDFViewPager
+        android:visibility="invisible"
+        android:id="@+id/pdfViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <ProgressBar
         android:layout_width="match_parent"

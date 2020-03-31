@@ -56,6 +56,7 @@ public class PiousAccociationsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/MCCL.php");
                 startActivity(intent);
             }
@@ -65,6 +66,7 @@ public class PiousAccociationsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/MCYM.php");
                 startActivity(intent);
             }
@@ -74,6 +76,7 @@ public class PiousAccociationsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/Mathrusmajam.php");
                 startActivity(intent);
             }

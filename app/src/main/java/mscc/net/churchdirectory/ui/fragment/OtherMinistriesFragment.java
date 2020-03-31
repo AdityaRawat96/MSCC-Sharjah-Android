@@ -53,6 +53,7 @@ public class OtherMinistriesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/otherMinistries.php");
                 startActivity(intent);
             }

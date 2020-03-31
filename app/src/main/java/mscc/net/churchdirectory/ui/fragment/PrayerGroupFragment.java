@@ -76,6 +76,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/OurLadyOfArabia.php");
                 startActivity(intent);
             }
@@ -85,6 +86,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StPeter.php");
                 startActivity(intent);
             }
@@ -94,6 +96,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StJoseph.php");
                 startActivity(intent);
             }
@@ -103,6 +106,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StGeorge.php");
                 startActivity(intent);
             }
@@ -112,6 +116,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StJohn.php");
                 startActivity(intent);
             }
@@ -121,6 +126,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StJude.php");
                 startActivity(intent);
             }
@@ -130,6 +136,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StThomas.php");
                 startActivity(intent);
             }
@@ -139,6 +146,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StAlphonsa.php");
                 startActivity(intent);
             }
@@ -148,6 +156,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/MarIvanios.php");
                 startActivity(intent);
             }
@@ -157,6 +166,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StFrancisofAssisi.php");
                 startActivity(intent);
             }
@@ -166,6 +176,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/StTheresa.php");
                 startActivity(intent);
             }
@@ -175,6 +186,7 @@ public class PrayerGroupFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , WebViewActivity.class);
+                intent.putExtra("zoomEnabled", true);
                 intent.putExtra("urlString", "http://msccsharjah.com/Pages/MarGregorios.php");
                 startActivity(intent);
             }
